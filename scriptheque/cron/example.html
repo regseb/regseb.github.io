@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Cron - Example</title>
+    <style>
+      li:hover {
+          cursor: pointer;
+          text-decoration: underline;
+      }
+    </style>
+    <script src="cron.js"></script>
+  </head>
+  <body>
+    <h1>Cron - Example</h1>
+    <h2>Demo</h2>
+    <form action="#" onsubmit="return false">
+      <p>
+        <label for="cron">Cron:</label>
+        <input type="text" name="cron" id="cron" value="* * * * *" />
+      </p>
+      <p>
+        <label for="message">Message:</label>
+        <input type="text" name="message" id="message" value="Hello world" />
+      </p>
+      <p>
+        <input type="button" name="add" id="add" value="Add" />
+      </p>
+    </form>
+    <ul id="crontab"></ul>
+
+    <h2>Code</h2>
+    <script id="script">
+      document.getElementById("add").onclick = function() {
+          var cronID = setCron(alert, this.form.cron.value,
+                                      this.form.message.value);
+
+          var li = document.createElement("li");
+          li.innerHTML = this.form.cron.value + ' : ' +
+                         this.form.message.value;
+          li.onclick = function() {
+              var cronID = this.getAttribute("data-cronid");
+              clearCron(cronID);
+              document.getElementById("crontab").removeChild(this);
+          }
+
+          var id = document.createAttribute("data-cronid");
+          id.value = cronID;
+          li.setAttributeNode(id);
+
+          document.getElementById("crontab").appendChild(li);
+      };
+    </script>
+    <pre><script>
+      document.write(document.getElementById("script").innerHTML);
+    </script></pre>
+  </body>
+</html>
