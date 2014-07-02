@@ -27,9 +27,9 @@
         <h2 id="description">Description</h2>
         <p>
           La bibliothèque JavaScript <strong>Scronpt</strong> ajoute la fonction
-          <code><strong>setCron()</strong></code> qui est similaire à la fonction
-          <code>setInterval()</code>, mais prend en paramètre une chaine de
-          caractères indiquant les horaires d'exécution.
+          <code><strong>setCron()</strong></code> qui est similaire à la
+          fonction <code>setInterval()</code>, mais prend en paramètre une
+          chaine de caractères indiquant les horaires d'exécution.
         </p>
         <p>
           La bibliothèque fournit aussi la fonction <code>clearCron()</code> qui
@@ -70,8 +70,8 @@ window.clearCron(cronID);
         </p>
         <ul>
           <li>
-            <code>cronID</code> est un identifiant unique de tâche, qui peut être
-            passé à <code>clearCron()</code> ;
+            <code>cronID</code> est un identifiant unique de tâche, qui peut
+            être passé à <code>clearCron()</code> ;
           </li>
           <li>
             <code>fonction</code> est la fonction qui doit être appelée à
@@ -117,7 +117,7 @@ window.clearCron(cronID);
         <p>
           Pour chaque élément, des compositions sont possibles :
         </p>
-        <ol>
+        <ul>
           <li>
             <code>*</code>: chaque unité (<code>0</code>, <code>1</code>,
             <code>2</code>, ...) ;
@@ -134,7 +134,29 @@ window.clearCron(cronID);
             <code>,</code> : créer une liste (<code>4,8</code> corresponds aux
             unités <code>4</code> et <code>8</code>).
           </li>
-        </ol>
+        </ul>
+        <p>
+          Il existe aussi des raccourcis :
+        </p>
+        <ul>
+          <li>
+            <code>"@yearly"</code> ou <code>"@annually"</code> : tous les ans,
+            le 1er janvier ;
+          </li>
+          <li>
+            <code>"@monthly"</code> : le 1er jour de chaque mois ;
+          </li>
+          <li>
+            <code>"@weekly"</code> : une fois par semaine, le dimanche ;
+          </li>
+          <li>
+            <code>"@daily"</code> ou <code>"@midnight"</code> : tous les jours à
+            minuit ;
+          </li>
+          <li>
+            <code>"@hourly"</code> : toutes les heures.
+          </li>
+        </ul>
       </article>
 
       <article>
