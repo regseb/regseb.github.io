@@ -1,31 +1,32 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
-    <title>Cron - Example</title>
+    <title>Scronpt - Exemple</title>
     <style>
       li:hover {
           cursor: pointer;
           text-decoration: underline;
       }
     </style>
-    <script src="cron.min.js"></script>
+    <script src="scronpt.min.js"></script>
   </head>
   <body>
-    <h1>Cron - Example</h1>
-    <h2>Demo</h2>
+    <h1>Scronpt - Exemple</h1>
+    <h2>Démonstration</h2>
     <form action="#" onsubmit="return false">
       <p>
-        <label for="cron">Cron:</label>
-        <input type="text" name="cron" id="cron" value="* * * * *" />
+        <label>
+          Cron : <input name="cron" value="* * * * *" />
+        </label>
       </p>
       <p>
-        <label for="message">Message:</label>
-        <input type="text" name="message" id="message" value="Hello world" />
+        <label>
+          Message : <input name="message" value="Bonjour tout le monde" />
+        </label>
       </p>
       <p>
-        <input type="button" name="add" id="add" value="Add" />
+        <button id="add">Ajouter</button>
       </p>
     </form>
     <ul id="crontab"></ul>
@@ -37,13 +38,13 @@
                                       this.form.message.value);
 
           var li = document.createElement("li");
-          li.innerHTML = this.form.cron.value + ' : ' +
+          li.innerHTML = this.form.cron.value + " : " +
                          this.form.message.value;
           li.onclick = function() {
               var cronID = this.getAttribute("data-cronid");
               clearCron(cronID);
               document.getElementById("crontab").removeChild(this);
-          }
+          };
 
           var id = document.createAttribute("data-cronid");
           id.value = cronID;
@@ -53,6 +54,7 @@
       };
     </script>
     <pre><script>
+      // Afficher le code JavaScript dans la page.
       document.write(document.getElementById("script").innerHTML);
     </script></pre>
   </body>

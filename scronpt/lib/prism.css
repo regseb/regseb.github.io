@@ -1,0 +1,26 @@
+pre, :not(pre) > code {
+    background: #212121;
+    color: #f5f5f5;
+    font-size: 1.3em;
+}
+
+pre {
+    border-radius: .3em;
+    margin: .5em 0;
+    padding: 0 1em;
+}
+
+:not(pre) > code {
+    border-radius: .2em;
+    padding: 0 .3em;
+}
+
+.token.keyword     { color: #ffeb3b; }
+.token.punctuation { color: #f5f5f5; }
+.token.tag         { color: #ffeb3b; }
+.token.string,
+.token.attr-value  { color: #e51c23; }
+.token.attr-name   { color: #259b24; }
+.token.comment,
+.token.doctype     { color: #3f51b5; }
+
