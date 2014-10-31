@@ -166,11 +166,11 @@ window.clearCron(cronID);
 var cronID = setCron(poissonDAvril, "0 8 1 apr *");
 
 // Appeler la fonction jouerAuLoto, avec les numéros à jouer en
-// paramètres, tous les vendredis 13 à 13h13.
+// paramètre, tous les vendredis 13 à 13h13.
 setCron(jouerAuLoto, "13 13 13 * fri", 19, 42, 30, 48, 44, 10);
 
 // Appeler la fonction anonyme toutes les cinq minutes au travail (entre
-// 9h et 14h puis entre 14h et 18h) en semaine (du lundi au vendredi).
+// 9h et 12h puis entre 14h et 18h) en semaine (du lundi au vendredi).
 setCron(function() {
     alert("Tic-tac !");
 }, "*/5 9-12,14-18 * * 1-5");
