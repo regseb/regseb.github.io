@@ -1,36 +1,36 @@
 {
     "regseb/googlefeed/allocine": {
-        "module": "std/feed",
+        "module": "regseb/googlefeed",
         "coord": { "x": 1, "y": 1, "w": 28, "h": 6 } },
     "regseb/googlefeed/laprovence": {
-        "module": "std/feed",
+        "module": "regseb/googlefeed",
         "coord": { "x": 1, "y": 8, "w": 28, "h": 6 } },
     "regseb/googlefeed/clubic": {
-        "module": "std/feed",
+        "module": "regseb/googlefeed",
         "coord": { "x": 1, "y": 15, "w": 28, "h": 6 } },
     "regseb/googlefeed/lemonde": {
-        "module": "std/feed",
+        "module": "regseb/googlefeed",
         "coord": { "x": 1, "y": 22, "w": 28, "h": 6 } },
     "regseb/googlefeed/linuxfr": {
-        "module": "std/feed",
+        "module": "regseb/googlefeed",
         "coord": { "x": 1, "y": 29, "w": 28, "h": 6 } },
     "regseb/googlefeed/arretsurimages": {
-        "module": "std/feed",
+        "module": "regseb/googlefeed",
         "coord": { "x": 30, "y": 1, "w": 28, "h": 6 } },
     "regseb/googlefeed/lequipe": {
-        "module": "std/feed",
+        "module": "regseb/googlefeed",
         "coord": { "x": 30, "y": 8, "w": 28, "h": 6 } },
     "regseb/googlefeed/developpez": {
-        "module": "std/feed",
+        "module": "regseb/googlefeed",
         "coord": { "x": 30, "y": 15, "w": 28, "h": 6 } },
     "regseb/googlefeed/velaux": {
-        "module": "std/feed",
+        "module": "regseb/googlefeed",
         "coord": { "x": 30, "y": 22, "w": 28, "h": 3 } },
     "regseb/googlefeed/legorafi": {
-        "module": "std/feed",
+        "module": "regseb/googlefeed",
         "coord": { "x": 30, "y": 26, "w": 28, "h": 3 } },
     "regseb/googlefeed/slate": {
-        "module": "std/feed",
+        "module": "regseb/googlefeed",
         "coord": { "x": 30, "y": 30, "w": 28, "h": 5 } },
 
     "regseb/youtube/humour": {
