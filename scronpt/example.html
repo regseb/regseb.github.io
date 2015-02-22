@@ -10,12 +10,12 @@
           text-decoration: underline;
       }
     </style>
-    <script src="scronpt.min.js"></script>
+    <script src="scronpt.js"></script>
   </head>
   <body>
     <h1>Scronpt - Exemple</h1>
     <h2>Démonstration</h2>
-    <form action="#" onsubmit="return false">
+    <form>
       <p>
         <label>
           Cron : <input name="cron" value="* * * * *" />
@@ -27,29 +27,24 @@
         </label>
       </p>
       <p>
-        <button id="add">Ajouter</button>
+        <button type="button" id="add">Ajouter</button>
       </p>
     </form>
     <ul id="crontab"></ul>
 
     <h2>Code</h2>
     <script id="script">
-      document.getElementById("add").onclick = function() {
-          var cronID = setCron(alert, this.form.cron.value,
-                                      this.form.message.value);
+      document.getElementById("add").onclick = function () {
+          var cron = new Cron(this.form.cron.value, alert,
+                              this.form.message.value);
 
           var li = document.createElement("li");
           li.innerHTML = this.form.cron.value + " : " +
                          this.form.message.value;
-          li.onclick = function() {
-              var cronID = this.getAttribute("data-cronid");
-              clearCron(cronID);
-              document.getElementById("crontab").removeChild(this);
+          li.onclick = function () {
+              cron.stop();
+              document.getElementById("crontab").removeChild(li);
           };
-
-          var id = document.createAttribute("data-cronid");
-          id.value = cronID;
-          li.setAttributeNode(id);
 
           document.getElementById("crontab").appendChild(li);
       };

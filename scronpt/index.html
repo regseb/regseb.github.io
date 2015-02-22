@@ -14,11 +14,11 @@
         Bibliothèque JavaScript implémentant un programme Unix cron.
       </p>
       <nav>
-        <a href="scronpt.min.js" title="1 848 octets"
-           class="primary icon-download">Télécharger</a>
+        <a href="scronpt.js" title="1 848 octets"
+           class="primary icn-download">Télécharger</a>
         <a href="https://github.com/regseb/scronpt/"
-           class="icon-github">Code source</a>
-        <a href="example.html" class="icon-example">Exemple</a>
+           class="icn-github">Code source</a>
+        <a href="example.html" class="icn-example">Exemple</a>
       </nav>
     </header>
 
@@ -26,66 +26,117 @@
       <article>
         <h2 id="description">Description</h2>
         <p>
-          La bibliothèque JavaScript <strong>Scronpt</strong> ajoute la fonction
-          <code><strong>setCron()</strong></code> qui est similaire à la
-          fonction <code>setInterval()</code>, mais prend en paramètre une
-          chaine de caractères indiquant les horaires d'exécution.
-        </p>
-        <p>
-          La bibliothèque fournit aussi la fonction <code>clearCron()</code> qui
-          supprime une tâche.
+          La bibliothèque JavaScript <strong>Scronpt</strong> fourni une classe
+          <code>Cron</code> pour créer des tâches récurentes.
         </p>
       </article>
 
       <article>
-        <h2 id="install">Installation</h2>
-        <p>
-          Il suffit de télécharger le script et de l'inclure dans la page (avant
-          la première utilisation des fonctions <code>setCron()</code> ou
-          <code>clearCron()</code>).
-        </p>
-        <pre><code class="language-markup">
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;!-- ... --&gt;
-    &lt;script src="scronpt.min.js"&gt;&lt;/script&gt;
-    &lt;!-- ... --&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;!-- ... --&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-        </code></pre>
-      </article>
-
-      <article>
-        <h2 id="syntax">Syntaxe</h2>
+        <h2 id="api">API</h2>
+        <h3>Constructeur</h3>
         <pre><code class="language-javascript">
-cronID = window.setCron(fonction, cron[, param1, param2, ...]);
-window.clearCron(cronID);
+new Cron(notation, [état], fonction, [, param1, param2, ...])
         </code></pre>
         <p>
           où
         </p>
         <ul>
           <li>
-            <code>cronID</code> est un identifiant unique de tâche, qui peut
-            être passé à <code>clearCron()</code> ;
+            <code>notation</code> contient la notation <em>cron</em> indiquant
+            quand sera appelé la <code>fonction</code> ;
           </li>
           <li>
-            <code>fonction</code> est la fonction qui doit être appelée à
-            l'horaire ;
+            <code>état</code> est un booléen indiquant si la tâche est active :
+            <code>true</code> (valeur par défaut), sinon : <code>false</code> ;
           </li>
           <li>
-            <code>cron</code> est les horaires quand seront exécuté la
-            <code>fonction</code> ;
+            <code>fonction</code> est la fonction qui sera appelée à chaque
+            horaire indiqué dans la <code>notation</code> ;
           </li>
           <li>
             <code>param1</code>, <code>param2</code>, <code>...</code> sont des
             paramètres qui seront passés à la <code>fonction</code>.
           </li>
         </ul>
+
+        <h3>Méthodes</h3>
+        <pre><code class="language-javascript">
+Cron.prototype.start()
+        </code></pre>
+        <p>
+          Activer la tâche. Si la tâche est déjà active : la méthode n'a aucun
+          effet.
+        </p>
+        <pre><code class="language-javascript">
+Cron.prototype.stop()
+        </code></pre>
+        <p>
+          Désactiver la tâche. Si la tâche est déjà inactive : la méthode n'a
+          aucun effet.
+        </p>
+        <pre><code class="language-javascript">
+Cron.prototype.status()
+        </code></pre>
+        <p>
+          Récupérer l'état de la tâche. La méthode retourne <code>true</code>
+          si la tâche est active ; et <code>false</code> pour une tâche
+          inactive.
+        </p>
+      </article>
+
+      <article>
+        <h2 id="use">Utilisation</h2>
+        <h3>AMD</h3>
+        <p>
+          Pour l'utilisation de la bibliothèque avec un chargeur
+          <a href="https://github.com/amdjs/amdjs-api"
+             title="Asynchronous Module Definition">AMD</a> (par exemple
+          <a href="http://requirejs.org/">RequireJS</a>) :
+        </p>
+        <pre><code class="language-javascript">
+define(["scronpt"], function (Cron) {
+    // ...
+    var cron = new Cron(/* ... */);
+});
+// Ou :
+require(["scronpt"], function (Cron) {
+    // ...
+    var cron = new Cron(/* ... */);
+});
+        </code></pre>
+
+        <h3>CommonJS</h3>
+        <p>
+          Si vous souhaitez utiliser la bibliothèque dans
+          <a href="http://nodejs.org/">node.js</a> (qui utilise le protocole
+          CommonJS), voici un exemple :
+        </p>
+        <pre><code class="language-javascript">
+var Cron = require("scronpt");
+// ...
+var cron = new Cron(/* ... */);
+        </code></pre>
+
+        <h3>Variable global</h3>
+        <p>
+          Il suffit de télécharger le script et de l'inclure dans la page HTML.
+        </p>
+        <pre><code class="language-markup">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;!-- ... --&gt;
+    &lt;script src="scronpt.js"&gt;&lt;/script&gt;
+    &lt;!-- ... --&gt;
+    &lt;script&gt;
+      var cron = new Cron(/* ... */);
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;!-- ... --&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+        </code></pre>
       </article>
 
       <article>
@@ -171,7 +222,7 @@ setCron(jouerAuLoto, "13 13 13 * fri", 19, 42, 30, 48, 44, 10);
 
 // Appeler la fonction anonyme toutes les cinq minutes au travail (entre
 // 9h et 12h puis entre 14h et 18h) en semaine (du lundi au vendredi).
-setCron(function() {
+setCron(function () {
     alert("Tic-tac !");
 }, "*/5 9-12,14-18 * * 1-5");
 
@@ -182,6 +233,25 @@ clearCron(cronID);
     </div>
 
     <div id="sidebar">
+      <article>
+        <h2 id="download">Téléchargement</h2>
+        <p>
+          Vous pouvez récupérer le script minifié en cliquant sur le bouton
+          <em>Télécharger</em> dans l'entête de cette page.
+        </p>
+        <p>
+          Si vous utiliser
+          <a href="https://www.npmjs.org/"
+             title="Node Packaged Modules">npm</a> ou
+          <a href="http://bower.io/">bower</a> : la bibliothèque est disponible
+          avec les lignes de commande suivantes :
+        </p>
+        <pre><code>
+npm install scronpt
+bower install scronpt
+        </code></pre>
+      </article>
+
       <article>
         <h2 id="compatibility">Compatibilité</h2>
         <p>

@@ -2,9 +2,9 @@
     font-family: "icon";
     src: url("img/icon.ttf");
 }
-.icon-download:before { font-family: "icon"; content: "\e602  "; }
-.icon-github:before   { font-family: "icon"; content: "\e600  "; }
-.icon-example:before  { font-family: "icon"; content: "\e601  "; }
+.icn-download:before { font-family: "icon"; content: "\e602  "; }
+.icn-github:before   { font-family: "icon"; content: "\e600  "; }
+.icn-example:before  { font-family: "icon"; content: "\e601  "; }
 
 html {
     padding-bottom: 1em;
