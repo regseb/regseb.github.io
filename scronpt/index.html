@@ -235,9 +235,9 @@ var cron = new Cron(/* ... */);
 // Appeler la fonction poissonDAvril tous les 1er avril à 8h00.
 var cron = new Cron("0 8 1 apr *", poissonDAvril);
 
-// Appeler la fonction anonyme toutes les cinq minutes au travail (entre
-// 9h et 18h) en semaine (du lundi au vendredi).
-new Cron("0,30 9-18 * * mon-fri", alert, "Ding ! Dong !");
+// Appeler la fonction alert toutes les demi-heures au travail (entre 9h et
+// 18h) en semaine (du lundi au vendredi).
+new Cron("0,30 9-18 * * 1-5", alert, "Ding ! Dong !");
 
 // Arrêter la tâche du poisson d'avril, ce n'est plus de notre age.
 cron.stop();
@@ -252,8 +252,8 @@ cron.start();
       <article>
         <h2 id="download">Téléchargement</h2>
         <p>
-          Vous pouvez récupérer le script minifié en cliquant sur le bouton
-          <em>Télécharger</em> dans l'entête de cette page.
+          Vous pouvez récupérer le script minifié (2 429 octets) en cliquant
+          sur le bouton <em>Télécharger</em> dans l'entête de cette page.
         </p>
         <p>
           Si vous utiliser
