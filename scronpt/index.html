@@ -14,7 +14,7 @@
         Bibliothèque JavaScript implémentant un programme Unix cron.
       </p>
       <nav>
-        <a href="scronpt.js" title="1 848 octets"
+        <a href="scronpt.js" title="2 429 octets"
            class="primary icn-download">Télécharger</a>
         <a href="https://github.com/regseb/scronpt/"
            class="icn-github">Code source</a>
@@ -58,6 +58,19 @@ new Cron(notation, [état], fonction, [, param1, param2, ...])
             paramètres qui seront passés à la <code>fonction</code>.
           </li>
         </ul>
+        <p>
+          Le constructeur peut lancer une exception :
+        </p>
+        <ul>
+          <li>
+            <code>Error</code> si la syntaxe de la notation <em>cron</em> est
+            incorrecte ;
+          </li>
+          <li>
+            <code>RangeError</code> si un intervalle est invalide (hors limite
+            ou la borne supérieure est plus grand que la borne inférieure).
+          </li>
+        </ul>
 
         <h3>Méthodes</h3>
         <pre><code class="language-javascript">
@@ -94,12 +107,12 @@ Cron.prototype.status()
           <a href="http://requirejs.org/">RequireJS</a>) :
         </p>
         <pre><code class="language-javascript">
-define(["scronpt"], function (Cron) {
+require(["scronpt"], function (Cron) {
     // ...
     var cron = new Cron(/* ... */);
 });
 // Ou :
-require(["scronpt"], function (Cron) {
+define(["scronpt"], function (Cron) {
     // ...
     var cron = new Cron(/* ... */);
 });
@@ -108,7 +121,7 @@ require(["scronpt"], function (Cron) {
         <h3>CommonJS</h3>
         <p>
           Si vous souhaitez utiliser la bibliothèque dans
-          <a href="http://nodejs.org/">node.js</a> (qui utilise le protocole
+          <a href="http://nodejs.org/">Node.js</a> (qui utilise le protocole
           CommonJS), voici un exemple :
         </p>
         <pre><code class="language-javascript">
@@ -142,8 +155,9 @@ var cron = new Cron(/* ... */);
       <article>
         <h2 id="notations">Notations</h2>
         <p>
-          Le paramètre <code>cron</code> est une chaine de caractères composées
-          de cinq éléments séparés par une espace. Les éléments représentent :
+          Le paramètre <code>notation</code> est une chaine de caractères
+          composées de cinq éléments séparés par une espace. Les éléments
+          représentent :
         </p>
         <ol>
           <li>
@@ -187,7 +201,7 @@ var cron = new Cron(/* ... */);
           </li>
         </ul>
         <p>
-          Il existe aussi des raccourcis :
+          Il existe aussi des chaines spéciales :
         </p>
         <ul>
           <li>
@@ -208,26 +222,28 @@ var cron = new Cron(/* ... */);
             <code>"@hourly"</code> : toutes les heures.
           </li>
         </ul>
+        <p>
+          Pour plus d'information, vous pouvez consulter le
+          <a href="http://manpages.debian.org/cgi-bin/man.cgi?query=crontab&sektion=5&locale=fr">
+            manuel de <code>crontab</code></a>.
+        </p>
       </article>
 
       <article>
         <h2 id="examples">Exemples</h2>
         <pre><code class="language-javascript">
 // Appeler la fonction poissonDAvril tous les 1er avril à 8h00.
-var cronID = setCron(poissonDAvril, "0 8 1 apr *");
-
-// Appeler la fonction jouerAuLoto, avec les numéros à jouer en
-// paramètre, tous les vendredis 13 à 13h13.
-setCron(jouerAuLoto, "13 13 13 * fri", 19, 42, 30, 48, 44, 10);
+var cron = new Cron("0 8 1 apr *", poissonDAvril);
 
 // Appeler la fonction anonyme toutes les cinq minutes au travail (entre
-// 9h et 12h puis entre 14h et 18h) en semaine (du lundi au vendredi).
-setCron(function () {
-    alert("Tic-tac !");
-}, "*/5 9-12,14-18 * * 1-5");
+// 9h et 18h) en semaine (du lundi au vendredi).
+new Cron("0,30 9-18 * * mon-fri", alert, "Ding ! Dong !");
 
-// Supprimer la tâche du poisson d'avril.
-clearCron(cronID);
+// Arrêter la tâche du poisson d'avril, ce n'est plus de notre age.
+cron.stop();
+
+// Finalement, il n'y a pas d'age pour s'amuser.
+cron.start();
         </code></pre>
       </article>
     </div>
@@ -241,9 +257,9 @@ clearCron(cronID);
         </p>
         <p>
           Si vous utiliser
-          <a href="https://www.npmjs.org/"
+          <a href="https://www.npmjs.org/package/scronpt"
              title="Node Packaged Modules">npm</a> ou
-          <a href="http://bower.io/">bower</a> : la bibliothèque est disponible
+          <a href="http://bower.io/">bower</a>, la bibliothèque est disponible
           avec les lignes de commande suivantes :
         </p>
         <pre><code>
@@ -267,8 +283,8 @@ bower install scronpt
             <th>Safari</th>
           </tr>
           <tr>
-            <td>5</td>
             <td>4</td>
+            <td>5</td>
             <td>9</td>
             <td>12</td>
             <td>5</td>
