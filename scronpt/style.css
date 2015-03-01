@@ -24,6 +24,7 @@ a {
 }
 a:hover {
     color: #ffa726;
+    text-decoration: underline;
 }
 
 abbr[title] {
