@@ -15,11 +15,11 @@
         de l'URL.
       </p>
       <nav>
-        <a href="wiloquery.js" title="326 octets"
-           class="primary icon-download">Télécharger</a>
-        <a href="https://github.com/regseb/wiloquery/"
-           class="icon-github">Code source</a>
-        <a href="example.html" class="icon-example">Exemple</a>
+        <a href="wiloquery.js" title="448&nbsp;octets"
+           class="primary icn-download">Télécharger <small>0.3.1</small></a>
+        <a href="https://github.com/regseb/wiloquery"
+           class="icn-github">Code source</a>
+        <a href="example.html" class="icn-example">Exemple</a>
       </nav>
     </header>
 
@@ -27,9 +27,8 @@
       <article>
         <h2 id="description">Description</h2>
         <p>
-          La bibliothèque JavaScript <strong>Wiloquery</strong> ajoute la
-          propriété <code>query</code> à l'objet <code>window.location</code>.
-          <code>query</code> contiendra une représentation
+          La bibliothèque JavaScript <strong>Wiloquery</strong> fourni une
+          variable contenant une représentation
           <a href="http://www.json.org/json-fr.html">
             <abbr title="JavaScript Object Notation">JSON</abbr></a> de la
           variable <code>window.location.search</code>. Pour chaque paramètre
@@ -42,7 +41,7 @@
         <p>
           Par exemple pour l'URL <code>http://www.example.org/<strong><!--
             -->?a=x&amp;b=y&amp;b=z&amp;c=&amp;d&amp;&amp;</strong></code>,
-          <code>window.location.query</code> contiendra :
+          la variable contiendra :
         </p>
         <pre><code class="language-javascript">
 {
@@ -55,11 +54,42 @@
       </article>
 
       <article>
-        <h2 id="install">Installation</h2>
+        <h2 id="use">Utilisation</h2>
+        <h3>AMD</h3>
         <p>
-          Il suffit de télécharger le script et de l'inclure dans la page
-          (avant la première utilisation de la variable
-          <code>window.location.query</code>).
+          Pour l'utilisation de la bibliothèque avec un chargeur
+          <a href="https://github.com/amdjs/amdjs-api"
+             title="Asynchronous Module Definition">AMD</a> (par exemple
+          <a href="http://requirejs.org/">RequireJS</a>) :
+        </p>
+        <pre><code class="language-javascript">
+require(["wiloquery"], function (wiloquery) {
+    // ...
+    var foo = wiloquery.foo;
+});
+Ou :
+define(["wiloquery"], function (wilouqery) {
+    // ...
+    var foo = wiloquery.foo;
+});
+        </code></pre>
+
+        <h3>CommonJS</h3>
+        <p>
+          Si vous souhaitez utiliser la bibliothèque avec le protocole CommonJS,
+          voici un exemple :
+        </p>
+        <pre><code class="language-javascript">
+var wiloquery = require("wiloquery");
+// ...
+var foo = wiloquery.foo;
+        </code></pre>
+
+        <h3>Variable global</h3>
+        <p>
+          Il suffit de télécharger le script et de l'inclure dans la page HTML.
+          La variable sera stockée dans la propriété <code>query</code> de
+          l'objet <code>window.location</code>.
         </p>
         <pre><code class="language-markup">
 &lt;!DOCTYPE html&gt;
@@ -68,6 +98,9 @@
     &lt;!-- ... --&gt;
     &lt;script src="wiloquery.js"&gt;&lt;/script&gt;
     &lt;!-- ... --&gt;
+    &lt;script&gt;
+      var foo = window.location.query.foo;
+    &lt;/script&gt;
   &lt;/head&gt;
   &lt;body&gt;
     &lt;!-- ... --&gt;
@@ -75,14 +108,43 @@
 &lt;/html&gt;
         </code></pre>
       </article>
+
+      <article>
+        <h2 id="examples">Exemples</h2>
+        <pre><code class="language-javascript">
+// Récupérer la page du site demandée (www.example.org?p=news). Et par défaut :
+// aller sur la page d'accueil.
+var page = "p" in window.location.query ? window.location.query.p
+                                        : "home";
+        </code></pre>
+      </article>
     </div>
 
     <div id="sidebar">
       <article>
+        <h2 id="download">Téléchargement</h2>
+        <p>
+          Vous pouvez récupérer le script minifié (448 octets) en cliquant sur
+          le bouton <em>Télécharger</em> dans l'entête de cette page.
+        </p>
+        <p>
+          Si vous utiliser
+          <a href="https://www.npmjs.org/package/wiloquery"
+             title="Node Packaged Modules">npm</a> ou
+          <a href="http://bower.io/">bower</a>, la bibliothèque est disponible
+          avec les lignes de commande suivantes :
+        </p>
+        <pre><code>
+npm install scronpt
+bower install scronpt
+        </code></pre>
+      </article>
+
+      <article>
         <h2 id="compatibility">Compatibilité</h2>
         <p>
-          Voici les versions minimales nécessaires pour utiliser la bibliothèque
-          avec les principaux navigateurs.
+          Voici les versions minimales nécessaires pour utiliser la
+          bibliothèque avec les principaux navigateurs.
         </p>
         <table>
           <tr>
@@ -112,7 +174,7 @@
       <article>
         <h2 id="contributor">Contributeur</h2>
         <ul>
-          <li><a href="https://github.com/regseb/">Sébastien Règne</a></li>
+          <li><a href="https://github.com/regseb">Sébastien Règne</a></li>
         </ul>
       </article>
 
