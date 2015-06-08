@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,6 +7,7 @@
     <link rel="icon" type="image/png" href="img/favicon.png" />
     <link rel="stylesheet" href="lib/prism.css" />
     <link rel="stylesheet" href="style.css" />
+    <script src="scronpt.js"></script>
   </head>
   <body>
     <header>
@@ -16,7 +17,7 @@
       </p>
       <nav>
         <a href="scronpt.js" title="2&nbsp;427 octets"
-           class="primary icn-download">Télécharger <small>0.2.2</small></a>
+           class="primary icn-download">Télécharger <small>0.2.3</small></a>
         <a href="https://github.com/regseb/scronpt"
            class="icn-github">Code source</a>
         <a href="example.html" class="icn-example">Exemple</a>
@@ -36,7 +37,7 @@
         <h2 id="api">API</h2>
         <h3>Constructeur</h3>
         <pre><code class="language-javascript">
-new Cron(notation, [état], fonction, [, param1, param2, ...])
+new Cron(notation, [état], fonction, [param1, param2, ...])
         </code></pre>
         <p>
           où
@@ -69,7 +70,11 @@ new Cron(notation, [état], fonction, [, param1, param2, ...])
           </li>
           <li>
             <code>RangeError</code> si un intervalle est invalide (hors limite
-            ou la borne supérieure est plus grand que la borne inférieure).
+            ou la borne supérieure est plus grand que la borne inférieure) ;
+          </li>
+          <li>
+            <code>TypeError</code> si le constucteur est appellé sans le mot clé
+            <code>new</code> ou si des paramètres n'ont pas le bon type.
           </li>
         </ul>
 
@@ -105,7 +110,7 @@ Cron.prototype.status()
           Pour l'utilisation de la bibliothèque avec un chargeur
           <a href="https://github.com/amdjs/amdjs-api"
              title="Asynchronous Module Definition">AMD</a> (par exemple
-          <a href="http://requirejs.org/">RequireJS</a>) :
+          <a href="http://requirejs.org">RequireJS</a>) :
         </p>
         <pre><code class="language-javascript">
 require(["scronpt"], function (Cron) {
@@ -236,8 +241,8 @@ var cron = new Cron(/* ... */);
 // Appeler la fonction poissonDAvril tous les 1er avril à 8h00.
 var cron = new Cron("0 8 1 apr *", poissonDAvril);
 
-// Appeler la fonction alert toutes les demi-heures au travail (entre 9h et
-// 18h) en semaine (du lundi au vendredi).
+// Appeler la fonction alert toutes les demi-heures au travail (entre
+// 9h et 18h) en semaine (du lundi au vendredi).
 new Cron("0,30 9-18 * * 1-5", alert, "Ding ! Dong !");
 
 // Arrêter la tâche du poisson d'avril, ce n'est plus de notre age.
@@ -259,9 +264,9 @@ cron.start();
         </p>
         <p>
           Si vous utiliser
-          <a href="https://www.npmjs.org/package/scronpt"
+          <a href="https://www.npmjs.com/package/scronpt"
              title="Node Packaged Modules">npm</a> ou
-          <a href="http://bower.io/">bower</a>, la bibliothèque est disponible
+          <a href="http://bower.io">bower</a>, la bibliothèque est disponible
           avec les lignes de commande suivantes :
         </p>
         <pre><code>
