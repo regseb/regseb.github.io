@@ -1,2 +1,2 @@
-//Wiloquery 0.3.1|regseb.github.io/wiloquery
+//Wiloquery 0.3.2|regseb.github.io/wiloquery
 (function(a){"function"===typeof define&&define.amd?define([],a):"object"===typeof exports?module.exports=a():window.location.query=a()})(function(){var a={},e=window.location.search.substr(1).split("&"),f;for(f in e){var d=e[f].replace(/\+/g," ").split("="),b=d[0];if(""!==b){var c=null;2===d.length&&(c=decodeURIComponent(d[1]));b in a?Array.isArray(a[b])?a[b].push(c):a[b]=[a[b],c]:a[b]=c}}return a})
