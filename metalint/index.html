@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metalint</title>
+    <link rel="icon" type="image/png" href="img/favicon.svg" />
+    <link rel="stylesheet" href="global.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="../../">Metalint</a>
+      <ol>
+        <li>
+          <span>Guide utilisateur</span>
+          <ul>
+            <li><a href="user/install/">Installation</a></li>
+            <li><a href="user/config/">Configuration</a></li>
+            <li><a href="user/use/">Utilisation</a></li>
+            <li><hr /></li>
+            <li><a href="user/linters/">Linters</a></li>
+            <li><a href="user/reporters/">Rapporteurs</a></li>
+          </ul>
+        </li>
+        <li>
+          <span>Guide développeur</span>
+          <ul>
+            <li><a href="dev/source/">Code source</a></li>
+            <li><a href="dev/api/">API</a></li>
+            <li><a href="dev/linter/">Linter</a></li>
+            <li><a href="dev/reporter/">Rapporteur</a></li>
+          </ul>
+        </li>
+      </ol>
+    </nav>
+    <header>
+      <h1>Metalint</h1>
+      <p>
+        <cite>Un linter pour les gouverner tous.</cite>
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <p>
+          <strong>Metalint</strong> est un outil pour vérifier tous les fichiers
+          de votre projet.
+        </p>
+      </section>
+      <section id="snippet">
+        <a href="user/linters/" class="icn-linters">
+          <strong>Cinq langages</strong> peuvent être vérifiés grâce à 10
+          linters.
+        </a>
+        <a href="user/install/" class="icn-install">
+          Metalint est hébergé dans le gestionnaire de paquets
+          <strong>npm</strong>.
+        </a>
+        <a href="user/config/" class="icn-config">
+          La configuration se fait avec des fichiers <strong>JSON</strong>
+          regroupés dans un répertoire.
+        </a>
+        <a href="user/use/" class="icn-use">
+          Metalint s'utilise principalement en <strong>ligne de
+          commande</strong>.
+        </a>
+        <a href="user/reporters/" class="icn-reporters">
+          <strong>Plusieurs formats</strong> de sortie sont disponibles :
+          CSV, Checkstyle, JSON, ...
+        </a>
+      </section>
+    </main>
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="global.js"></script>
+  </body>
+</html>

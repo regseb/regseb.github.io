@@ -1,0 +1,247 @@
+html {
+    padding-bottom: 1em;
+}
+body {
+    background-color: #f5f5f5;
+    color: #212121;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0;
+    padding-top: 2em;
+    text-align: center;
+}
+p {
+    text-align: justify;
+}
+ul {
+    text-align: left;
+}
+a {
+    color: #ff9800;
+    text-decoration: none;
+}
+a:hover {
+    color: #ffa726;
+    text-decoration: underline;
+}
+
+abbr[title] {
+    border-bottom-width: 0;
+}
+
+blockquote {
+    border-left: 0.2em solid #9e9e9e;
+    padding-left: 1em;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+th, td {
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+    text-align: center;
+}
+th {
+    border: 1px solid #9e9e9e;
+    background: #9e9e9e;
+}
+td {
+    border: 1px solid #9e9e9e;
+}
+hr {
+    border-bottom: 1px solid #212121;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+nav {
+    background-color: #212121;
+    border-bottom: 1px solid #ff9800;
+    color: #f5f5f5;
+    height: 2em;
+    line-height: 2em;
+    padding-left: 5em;
+    padding-right: 5em;
+    position: fixed;
+    text-align: right;
+    top: 0;
+    width: calc(100% - 10em);
+    z-index: 1;
+}
+nav > a {
+    color: #f5f5f5;
+    float: left;
+    font-size: 1.4em;
+    margin: 0;
+    opacity: 1;
+    transition: opacity 0.25s;
+}
+nav > .show {
+    opacity: 1;
+}
+nav a:hover {
+    text-decoration: none;
+}
+
+nav ol {
+    margin-top: 0;
+}
+nav ol > li {
+    display: inline-block;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: left;
+    width: 10em;
+}
+nav span {
+    cursor: default;
+}
+nav span::after {
+    content: "  ▾";
+}
+nav ul {
+    background-color: #f5f5f5;
+    border-left: 1px solid #212121;
+    border-right: 1px solid #212121;
+    border-bottom: 1px solid #212121;
+    display: none;
+    list-style-type: none;
+    margin-left: calc(-1em - 1px);
+    padding: 0.3em 0 0.3em 0;
+    text-align: left;
+    width: 12em;
+}
+nav ol a {
+    box-sizing: border-box;
+    color: #212121;
+    display: inline-block;
+    padding: 0 1em 0 1em;
+    width: 100%;
+}
+nav ol a:hover {
+    color: #f5f5f5;
+    background-color: #ff9800;
+}
+nav ol > li:hover {
+    background-color: #f5f5f5;
+    color: #212121;
+}
+nav ol > li:hover > ul {
+    display: block;
+    position: absolute;
+}
+
+header {
+    background-color: #ff9800;
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: auto 100%;
+    background-image: url("img/logo.svg");
+    color: #f5f5f5;
+    font-size: 2em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    text-align: left;
+}
+h1 {
+    font-weight: normal;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+header p {
+    text-align: left;
+}
+
+main, aside {
+    text-align: left;
+}
+h2 {
+    border-bottom: 1px solid #ff9800;
+    font-size: 2em;
+    font-weight: normal;
+    padding-left: 0.5em;
+}
+
+@media screen and (min-width: 1024px) {
+    header {
+        padding-left: 5em;
+        padding-right: 5em;
+    }
+    main {
+        float: left;
+        margin-left: 5%;
+        width: 70%;
+    }
+    aside {
+        float: right;
+        margin-right: 5%;
+        width: 15%;
+        top: 3em;
+        right: 0;
+    }
+
+    aside ul {
+        list-style-type: none;
+        padding-left: 0;
+    }
+    aside a {
+        color: #212121;
+        padding-left: 0.5em;
+    }
+    aside a:hover {
+        border-left: 1px solid #ff9800;
+        color: #ff9800;
+        padding-left: calc(0.5em - 1px);
+        text-decoration: none;
+    }
+    aside .active a {
+        border-left: 2px solid #ff9800;
+        color: #ff9800;
+        padding-left: calc(0.5em - 2px);
+    }
+}
+
+@media screen and (max-width: 1023px) {
+    header {
+        padding-left: 1em;
+        padding-right: 1em;
+        width: inherit;
+    }
+    main {
+        margin-left: 1em;
+        margin-right: 1em;
+    }
+    aside {
+        display: none;
+    }
+}
+
+.tabs > ul {
+    border-bottom: 1px solid #ff9800;
+}
+.tabs > ul li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 1em;
+}
+.tabs > ul li.active {
+    background-color: #ff9800;
+    color: white;
+}
+
+.icn-linters {
+    /* image d'un livre */
+}
+.icn-install {
+    background-image: https://thenounproject.com/search/?q=package&amp;i=4983
+}
+.icn-config {
+    background-image: https://thenounproject.com/search/?q=config&amp;i=90271
+}
+.icn-user {
+    background-image: https://thenounproject.com/search/?q=cli&amp;i=87962
+}

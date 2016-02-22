@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSHint · Metalint</title>
+    <link rel="icon" type="image/png" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" href="../../../lib/prism.css" />
+    <link rel="stylesheet" href="../../../global.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="../../../">Metalint</a>
+      <ol>
+        <li>
+          <span>Guide utilisateur</span>
+          <ul>
+            <li><a href="../../install/">Installation</a></li>
+            <li><a href="../../config/">Configuration</a></li>
+            <li><a href="../../use/">Utilisation</a></li>
+            <li><hr /></li>
+            <li><a href="../../linters/">Linters</a></li>
+            <li><a href="../../reporters/">Rapporteurs</a></li>
+          </ul>
+        </li>
+        <li>
+          <span>Guide développeur</span>
+          <ul>
+            <li><a href="../../../dev/source/">Code source</a></li>
+            <li><a href="../../../dev/api/">API</a></li>
+            <li><a href="../../../dev/linter/">Linter</a></li>
+            <li><a href="../../../dev/reporter/">Rapporteur</a></li>
+          </ul>
+        </li>
+      </ol>
+    </nav>
+
+    <header><h1>JSHint</h1></header>
+
+    <main>
+      <section>
+        <h2 id="description">Description</h2>
+        <p>
+          <a href="http://jshint.com/">JSHint</a> est un analyseur
+          syntaxique pour les codes <strong>JavaScript</strong>.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="configuration">Configuration</h2>
+        <p>
+          Le fichier de configuration est identique à celui utilisé directement
+          par JSHint. La configuration <em>inline</em> fonctionne aussi avec
+          Metalint.
+        </p>
+        <p>
+          Toutes les
+          <a href="http://jshint.com/docs/options/">options</a> peuvent être
+          utilisées dans Metalint. Sauf les deux options spéciales :
+        </p>
+        <ul>
+          <li>
+            L'option <code>"extends"</code> permet d'hériter d'un autre fichier
+            de configuration. Pour remplacer cette option : passer plusieurs
+            fichiers de configuration au linter dans le fichier
+            <code>metalint.json</code>.
+          </li>
+          <li>
+            Grâce à l'option <code>"overrides"</code>, on peut spécifier des
+            règles particulières pour certains fichiers. Dans Metalint, cette
+            gestion de configurations différentes selon les fichiers est faite
+            avec les checkers du fichier <code>metalint.json</code>.
+          </li>
+        </ul>
+        <p>
+          Pour le fichier <code>.jshintignore</code> : utiliser les
+          <a href="../../config/#metalintjson_patterns">patrons</a> du fichiers
+          de configuration principale pour exclure des fichiers.
+        </p>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+
+    <script src="../../../lib/jquery.min.js"></script>
+    <script src="../../../global.js"></script>
+    <script src="../../../lib/prism.min.js"></script>
+  </body>
+</html>

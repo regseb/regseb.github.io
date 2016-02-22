@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utilisation | Metalint</title>
+    <link rel="icon" type="image/png" href="../../img/favicon.svg" />
+    <link rel="stylesheet" href="../../lib/prism.css" />
+    <link rel="stylesheet" href="../../global.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="../../">Metalint</a>
+      <ol>
+        <li>
+          <span>Guide utilisateur</span>
+          <ul>
+            <li><a href="../install/">Installation</a></li>
+            <li><a href="../config/">Configuration</a></li>
+            <li><a href="../use/">Utilisation</a></li>
+            <li><hr /></li>
+            <li><a href="../linters/">Linters</a></li>
+            <li><a href="../reporters/">Rapporteurs</a></li>
+          </ul>
+        </li>
+        <li>
+          <span>Guide développeur</span>
+          <ul>
+            <li><a href="../../dev/source/">Code source</a></li>
+            <li><a href="../../dev/api/">API</a></li>
+            <li><a href="../../dev/linter/">Linter</a></li>
+            <li><a href="../../dev/reporter/">Rapporteur</a></li>
+          </ul>
+        </li>
+      </ol>
+    </nav>
+
+    <header><h1>Utilisation</h1></header>
+
+    <main>
+      <section>
+        <h2 id="metalint"><code>metalint</code></h2>
+        <p>
+          En installant <a href="../install/#download">Metalint en global</a>,
+          un exécutable homonyme est ajouté dans votre <code>PATH</code>. Pour
+          vérifier que l'installation s'est bien déroulée, vous pouvez exécuter
+          la ligne de commande suivant :
+        </p>
+        <pre><code class="language-powershell">
+$ metalint --version
+        </code></pre>
+        <p>
+          Si <a href="../install/#integration">Metalint est intégré</a> dans
+          votre projet grâce au fichier <code>package.json</code> : il faut
+          insérer <strong><code>--</code></strong> entre l'appel du script
+          <code>"lint"</code> et les paramètres de <code>metalint</code>.
+        </p>
+        <pre><code class="language-powershell">
+$ npm run lint -- --version
+        </code></pre>
+        <p>
+          La valeur de retour de l'exécutable dépend des notifications :
+        </p>
+        <ul>
+          <li>
+            <strong><code>0</code></strong> : les vérifications ont remonté que
+            des informations et des avertissements ;
+          </li>
+          <li>
+            <strong><code>1</code></strong> : des erreurs normales (mais aucune
+            fatale) ont été trouvées ;
+          </li>
+          <li>
+            <strong><code>2</code></strong> : au moins une erreur fatale a été
+            signalée.
+          </li>
+        </ul>
+        <p>
+          Ces valeurs de retour permettent de chainer des procédures. Par
+          exemple, d'exécuter les tests si les linters n'ont trouvé aucune
+          erreur. Voici un extrait du fichier <code>package.json</code> :
+        </p>
+        <pre><code class="language-javascript">
+{
+    "scripts": {
+        "lint":    "metalint",
+        "pretest": "npm run lint",
+        "test":    "mocha"
+    }
+}
+        </code></pre>
+      </section>
+      <section>
+        <h2 id="options">Options</h2>
+        <p>
+          L'exécutable possède plusieurs options qui viennent surcharger la
+          configuration (sauf <code>--config</code>, <code>--help</code> et
+          <code>--version</code>).
+        </p>
+        <table>
+          <thead>
+            <tr>
+              <th>Options</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="options_config">
+              <td>
+                <code><strong>-c</strong> CONFIG</code><br />
+                <code><strong>--config=</strong>CONFIG</code>
+              </td>
+              <td>
+                <p>
+                  Spécifier l'emplacement du fichier de configuration. Par
+                  défaut le fichier est cherché à l'adresse
+                  <code>.metalint/metalint.json</code>.
+                </p>
+                <p>
+                  <u>Exemple</u> : aller chercher le fichier configuration dans
+                  le répertoire <code>conf/lint/</code>.
+                </p>
+                <pre><code class="language-shell">
+metalint -c conf/lint/metalint.json
+                </code></pre>
+              </td>
+            </tr>
+            <tr id="options_hidden">
+              <td>
+                <code><strong>-h</strong></code><br />
+                <code><strong>--hidden</strong></code>
+              </td>
+              <td>
+                <p>
+                  Vérifier aussi les fichiers / répertoires cachés.
+                </p>
+                <p>
+                  <u>Exemple</u> : surcharger le configuration pour vérifier les
+                  fichiers cachés.
+                </p>
+                <pre><code class="language-shell">
+metalint -h
+                </code></pre>
+              </td>
+            </tr>
+            <tr id="options_level">
+              <td>
+                <code><strong>-l</strong> LEVEL</code><br />
+                <code><strong>--level=</strong>LEVEL</code>
+              </td>
+              <td>
+                <p>
+                  Définir le niveau de sévérité global. Les valeurs possibles
+                  pour <code>LEVEL</code> sont :
+                </p>
+                <ul>
+                  <li>
+                    <code>OFF</code> : ne rien afficher ;
+                  </li>
+                  <li>
+                    <code>FATAL</code> : afficher seulement les erreurs
+                    fatales ;
+                  </li>
+                  <li>
+                    <code>ERROR</code> : retourner les erreurs (normales et
+                    fatales) ;
+                  </li>
+                  <li>
+                    <code>WARN</code> : afficher les avertissement et les
+                    erreurs ;
+                  </li>
+                  <li>
+                    <code>INFO</code> : tout afficher.
+                  </li>
+                </ul>
+                <p>
+                  <u>Exemple</u> : afficher seulement les erreurs fatales.
+                </p>
+                <pre><code class="language-shell">
+metalint -l FATAL
+                </code></pre>
+              </td>
+            </tr>
+            <tr id="options_output">
+              <td>
+                <code><strong>-o</strong> OUTPUT</code><br />
+                <code><strong>--output=</strong>OUTPUT</code>
+              </td>
+              <td>
+                <p>
+                  Définir le fichier où seront écrit les résultats.
+                </p>
+                <p>
+                  <u>Exemple</u> : placer le fichier des résultats dans le
+                  répertoire <code>/tmp/</code>.
+                </p>
+                <pre><code class="language-shell">
+metalint -o /tmp/metalint.log
+                </code></pre>
+              </td>
+            </tr>
+            <tr id="options_patterns">
+              <td>
+                <code><strong>-p</strong> PATTERN...</code><br />
+                <code><strong>--patterns=</strong>PATTERN...</code>
+              </td>
+              <td>
+                <p>
+                  Spécifier les patrons pour filtrer les fichiers qui seront
+                  vérifiés.
+                </p>
+                <p>
+                  <u>Exemple</u> : vérifier le code source des bibliothèques
+                  externes qui en temps normal ne sont pas incluse dans
+                  l'arborescence.
+                </p>
+                <pre><code class="language-shell">
+metalint -p "node_module/jshint/**" -p "node_module/jscs/**"
+                </code></pre>
+              </td>
+            </tr>
+            <tr id="options_reporter">
+              <td>
+                <code><strong>-r</strong> REPORTER</code><br />
+                <code><strong>--reporter=</strong>REPORTER</code>
+              </td>
+              <td>
+                <p>
+                  Définir le rapporteur utilisé pour afficher les résultats.
+                  Consultez la <a href="../reporters/">liste des rapporteurs</a>
+                  pour connaitre les valeurs possibles. Vous pouvez aussi donner
+                  le lien vers votre propre rapporteur.
+                </p>
+                <p>
+                  <u>Exemple</u> : utiliser la rapporteur retournant le résultat
+                  dans un objet JSON.
+                </p>
+                <pre><code class="language-shell">
+metalint -r json
+                </code></pre>
+              </td>
+            </tr>
+            <tr id="options_verbose">
+              <td>
+                <code><strong>-v</strong></code><br />
+                <code><strong>--verbose=</strong>VERBOSE</code>
+              </td>
+              <td>
+                <p>
+                  Augmenter le niveau de verbosité.
+                </p>
+                <p>
+                  <u>Exemple</u> : passer la verbosité à 2.
+                </p>
+                <pre><code class="language-shell">
+metalint -vv
+                </code></pre>
+              </td>
+            </tr>
+            <tr id="options_help">
+              <td><code><strong>--help</strong></code></td>
+              <td>
+                <p>
+                  Afficher l'aide.
+                </p>
+                <pre><code class="language-shell">
+metalint --help
+                </code></pre>
+              </td>
+            </tr>
+            <tr id="options_version">
+              <td><code><strong>--version</strong></code></td>
+              <td>
+                <p>
+                  Afficher le numéro de version de Metalint.
+                </p>
+                <pre><code class="language-shell">
+metalint --version
+                </code></pre>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h2 id="exemple">Exemple</h2>
+        <pre><code class="language-shell">
+$ ls -a
+.   ..   .metalint   script.js
+
+$ cat .metalint/metalint.json
+{
+    "checkers": [
+        {
+            "linters": { "jshint": null }
+        }
+    ]
+}
+
+$ cat script.js
+function hello() {
+    alert("Hello World!")
+}
+
+$ metalint
+script.js: 1 error.
+ERROR: Missing semicolon.
+    1| function hello() {
+    2‖     alert("Hello World!")
+--------------------------------^
+    3| }
+    4|
+
+$ metalint -r unix
+script.js:2:26: Missing semicolon.
+
+$ metalint --reporter unix -vv
+script.js:2:26: Missing semicolon. (jshint.W033)
+
+$ metalint --level=FATAL
+        </code></pre>
+        <p>
+          Dans cette exemple, un seul linter est utilisé :
+          <a href="../linters/jshint/">JSHint</a> (avec les paramètres par
+          défaut). Metalint vérifira que le fichier <code>script.js</code> car
+          le répertoire <code>.metalint/</code> est caché et par défaut les
+          fichiers cachés sont ignorés (voir la propriété
+          <a href="../config/#metalintjson_hidden"><code>hidden</code></a> du
+          fichier de configuration).
+        </p>
+        <p>
+          Le premier appel à <code>metalint</code> utilise aucune option,
+          Metalint utilise donc les valeurs définies dans le
+          <a href="../config/">fichier de configuration</a>.
+        </p>
+        <p>
+          Dans le deuxième et le troisème appel, le
+          <a href="../reporters/">rapporteur</a> est surchargé pour utiliser
+          <a href="../reporters/unix/">Unix</a>. L'option <code>-vv</code>
+          demande deux niveaux de verbosité suplémentaire : le linter ayant
+          trouvé le problème et la règle non-respectée sont ajoutés à la fin de
+          la description.
+        </p>
+        <p>
+          Pour le dernier appel, on souhaite afficher que les erreurs fatales.
+          Rien n'est affiché, car le seul problème du fichier
+          <code>script.js</code> est une erreur normale.
+        </p>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+
+    <script src="../../lib/jquery.min.js"></script>
+    <script src="../../global.js"></script>
+    <script src="../../lib/prism.min.js"></script>
+  </body>
+</html>
