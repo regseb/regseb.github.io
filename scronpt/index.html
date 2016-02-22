@@ -24,16 +24,16 @@
       </nav>
     </header>
 
-    <div id="content">
-      <article>
+    <main>
+      <section>
         <h2 id="description">Description</h2>
         <p>
           La bibliothèque JavaScript <strong>Scronpt</strong> fourni une classe
           <code>Cron</code> pour créer des tâches récurentes.
         </p>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h2 id="api">API</h2>
         <h3>Constructeur</h3>
         <pre><code class="language-javascript">
@@ -101,9 +101,9 @@ Cron.prototype.status()
           si la tâche est active ; et <code>false</code> pour une tâche
           inactive.
         </p>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h2 id="use">Utilisation</h2>
         <h3>AMD</h3>
         <p>
@@ -156,9 +156,9 @@ var cron = new Cron(/* ... */);
   &lt;/body&gt;
 &lt;/html&gt;
         </code></pre>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h2 id="notations">Notations</h2>
         <p>
           Le paramètre <code>notation</code> est une chaine de caractères
@@ -233,9 +233,9 @@ var cron = new Cron(/* ... */);
           <a href="http://manpages.debian.org/cgi-bin/man.cgi?query=crontab&amp;sektion=5&amp;locale=fr">
             manuel de <code>crontab</code></a>.
         </p>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h2 id="examples">Exemples</h2>
         <pre><code class="language-javascript">
 // Appeler la fonction poissonDAvril tous les 1er avril à 8h00.
@@ -251,11 +251,11 @@ cron.stop();
 // Finalement, il n'y a pas d'age pour s'amuser.
 cron.start();
         </code></pre>
-      </article>
-    </div>
+      </section>
+    </main>
 
-    <div id="sidebar">
-      <article>
+    <aside>
+      <section>
         <h2 id="download">Téléchargement</h2>
         <p>
           Vous pouvez récupérer le script minifié (2&nbsp;428 octets) en
@@ -273,9 +273,9 @@ cron.start();
 npm install scronpt
 bower install scronpt
         </code></pre>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h2 id="compatibility">Compatibilité</h2>
         <p>
           Voici les versions minimales nécessaires pour utiliser la
@@ -297,16 +297,16 @@ bower install scronpt
             <td>5</td>
           </tr>
         </table>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h2 id="dependencies">Dépendances</h2>
         <p>
           Aucune bibliothèque tierce n'est nécessaire pour utiliser Scronpt.
         </p>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h2 id="contributor">Contributeur</h2>
         <ul>
           <li><a href="https://github.com/regseb">Sébastien Règne</a></li>
@@ -320,8 +320,8 @@ bower install scronpt
           <a href="http://sam.zoy.org/lprab/"
              title="LPRAB">Licence Publique Rien À Branler</a>.
         </p>
-      </article>
-    </div>
+      </section>
+    </aside>
 
     <script src="lib/prism.min.js"></script>
   </body>
