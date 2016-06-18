@@ -23,7 +23,6 @@ main {
     text-decoration: none;
 }
 .icn-linters {
-    /* image d'un livre */
     background: url("img/linters.svg") no-repeat;
 }
 .icn-install {

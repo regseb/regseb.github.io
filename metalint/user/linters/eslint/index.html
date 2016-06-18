@@ -53,9 +53,8 @@
           par ESLint.
         </p>
         <p>
-          Toutes les
-          <a href="http://eslint.org/docs/rules/">règles</a> peuvent être
-          utilisées dans Metalint.
+          Toutes les <a href="http://eslint.org/docs/rules/">règles</a> peuvent
+          être utilisées dans Metalint.
         </p>
       </section>
 
@@ -68,10 +67,10 @@
           </ul>
           <pre><code class="language-javascript">
 {
-    "patterns": ["**", "!node_modules/**"],
+    "patterns": ["!node_modules/**", "**"],
     "checkers": [
         {
-            "patterns": ["**/*.js", "!**/*.min.js"],
+            "patterns": ["!**/*.min.js", "**/*.js"],
             "linters": "eslint"
         }
     ]
@@ -79,22 +78,38 @@
           </code></pre>
           <pre><code class="language-javascript">
 {
-    "ecmaFeatures": {
-        "blockBindings": true,
-        "forOf": true
+    "parserOptions": {
+        "ecmaFeatures": {
+            "blockBindings": true,
+            "forOf": true
+        }
     },
+
+    "globals": {
+        "Promise": true,
+    },
+
     "rules": {
-        "valid-jsdoc": [2, {
-            "prefer": {
-                "returns": "return",
-                "class":   "constructor"
-            },
-            "requireReturn": false
-        }]
+        "comma-dangle": 2,
+        "no-undef": 2,
+        "no-warning-comments": 1,
+        "prefer-const": 2,
+        "radix": 2,
+        "strict": [2, "global"],
     }
 }
           </code></pre>
         </div>
+      </section>
+
+      <section>
+        <h2 id="others">Autres linters JavaScript</h2>
+        <ul>
+          <li><a href="../flow-bin/">Flow</a></li>
+          <li><a href="../jscs/">JSCS</a></li>
+          <li><a href="../jshint/">JSHint</a></li>
+          <li><a href="../standard/">JavaScript Standard Style</a></li>
+        </ul>
       </section>
     </main>
 

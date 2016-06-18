@@ -42,7 +42,7 @@
         <h2 id="description">Description</h2>
         <p>
           <a href="//github.com/mivok/markdownlint">MarkdownLint</a> est un
-          outil pour vérifier le le code source des fichiers
+          outil pour vérifier le code source des fichiers
           <strong>Markdown</strong>.
         </p>
       </section>
@@ -58,6 +58,43 @@
           Toutes les
           <a href="//github.com/mivok/markdownlint/blob/master/docs/RULES.md">
             règles</a> peuvent être dans Metalint.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <div class="tabs">
+          <ul>
+            <li><code>metalint.json</code></li>
+            <li><code>markdownlint.json</code></li>
+          </ul>
+          <pre><code class="language-javascript">
+{
+    "patterns": ["!node_modules/**", "**"],
+    "checkers": [
+        {
+            "patterns": "**/*.md",
+            "linters": "markdownlint"
+        }
+    ]
+}
+          </code></pre>
+          <pre><code class="language-javascript">
+{
+    "MD003": { "style": "atx" },
+    "MD004": { "style": "dash" },
+    "MD029": { "style": "ordered" },
+    "MD035": { "style": "---" }
+}
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="others">Autres linters Markdown</h2>
+        <p>
+          MarkdownLint est le seul linter géré par Metalint pour vérifier les
+          fichier <em>Markdown</em>.
         </p>
       </section>
     </main>

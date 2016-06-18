@@ -92,7 +92,7 @@
                   <code>node_module/</code>.
                 </p>
                 <pre><code class="language-javascript">
-"patterns": ["**", "!.git/**", "!node_modules/**"]
+"patterns": ["!.git/**", "!node_modules/**", "**"]
                 </code></pre>
               </td>
             </tr>
@@ -272,7 +272,7 @@
                   minifiés.
                 </p>
                 <pre><code class="language-javascript">
-"patterns": ["**/*.js", "!**/*.min.js"]
+"patterns": ["!**/*.min.js", "**/*.js"]
                 </code></pre>
               </td>
             </tr>
@@ -440,10 +440,10 @@
           <li>
             <p>
               définir la règle <code>comments</code> pour
-              <a href="../linters/jsontlint/">JSONLint</a>.
+              <a href="../linters/json-lint/">JSON-Lint</a>.
             </p>
             <pre><code class="language-javascript">
-"linters": { "jsonlint": { "comments": false } }
+"linters": { "json-lint": { "comments": false } }
             </code></pre>
           </li>
         </ul>
@@ -458,11 +458,11 @@ csslint.json     jscs.json     jshint.json     metalint.json
 
 $ cat .metalint/metalint.json
 {
-    "patterns": ["**", "!.git/**", "!*_modules/**"],
+    "patterns": ["!.git/**", "!*_modules/**", "**"],
     "hidden": true,
     "checkers": [
         {
-            "patterns": ["**/*.js", "!**/*.min.js"],
+            "patterns": ["!**/*.min.js", "**/*.js"],
             "linters": ["jscs", "jshint"]
         }, {
             "patterns": "**/*.css",
@@ -531,14 +531,14 @@ $ head .metalint/jscs.json
         </p>
         <pre><code class="language-javascript">
 {
-    "patterns": ["**", "!node_module/**"],
+    "patterns": ["!node_module/**", "**"],
     "checkers": [
         {
-            "patterns": ["**/*.js", "!public/**"],
-            "linters": { "jshint": ["jshint.json", "jshint_back.json"] }
+            "patterns": ["!public/**", "**/*.js"],
+            "linters": { "eslint": ["eslint.json", "eslint_back.json"] }
         }, {
             "patterns": "public/**.js",
-            "linters": { "jshint": ["jshint.json", "jshint_front.json"] }
+            "linters": { "eslint": ["eslint.json", "eslint_front.json"] }
         }
     ]
 }
@@ -546,15 +546,16 @@ $ head .metalint/jscs.json
         <p>
           Le premier checker vérifie le code du serveur : tous les fichiers
           JavaScript sauf ce présents dans le répertoire <code>public/</code>.
-          Le fichier <code>jshint.json</code> contient les options common pour
-          JSHint. Tandis que <code>jshint_back.json</code> contient les options
-          spécifiques pour le serveur.
+          Le fichier <code>eslint.json</code> contient les options common pour
+          <a href="../linters/eslint/">ESLint</a>. Tandis que
+          <code>eslint_back.json</code> contient les options spécifiques pour le
+          serveur.
         </p>
         <p>
           Pour le second checker : il vérifie les fichiers JavaScript qui seront
-          exécutés dans la navigateur du client. <code>jshint.json</code> est
-          aussi fournit à JSHint, mais avec le fichier
-          <code>jshint_front.json</code> pour options liées aux navigateurs.
+          exécutés dans la navigateur du client. <code>eslint.json</code> est
+          aussi fournit à ESLint, mais avec le fichier
+          <code>eslint_front.json</code> pour options liées aux navigateurs.
         </p>
       </section>
     </main>

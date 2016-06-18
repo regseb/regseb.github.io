@@ -54,6 +54,45 @@
           être utilisées dans Metalint.
         </p>
       </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <div class="tabs">
+          <ul>
+            <li><code>metalint.json</code></li>
+            <li><code>csslint.json</code></li>
+          </ul>
+          <pre><code class="language-javascript">
+{
+    "patterns": ["!node_modules/**", "**"],
+    "checkers": [
+        {
+            "patterns": "**/*.css",
+            "linters": "csslint"
+        }
+    ]
+}
+          </code></pre>
+          <pre><code class="language-javascript">
+{
+    "empty-rules": true,
+    "floats": true,
+    "ids": true,
+    "important": true,
+    "known-properties": true,
+    "order-alphabetical": true,
+    "zero-units": true
+}
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="others">Autres linters CSS</h2>
+        <ul>
+          <li><a href="../stylelint/">stylelint</a></li>
+        </ul>
+      </section>
     </main>
 
     <aside><ul></ul></aside>

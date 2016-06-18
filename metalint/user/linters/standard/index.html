@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTMLHint · Metalint</title>
+    <title>JavaScript Standard Style · Metalint</title>
     <link rel="icon" type="image/png" href="../../../img/favicon.svg" />
     <link rel="stylesheet" href="../../../lib/prism.css" />
     <link rel="stylesheet" href="../../../global.css" />
@@ -35,23 +35,24 @@
       </ol>
     </nav>
 
-    <header><h1>HTMLHint</h1></header>
+    <header><h1>JavaScript Standard Style</h1></header>
 
     <main>
       <section>
         <h2 id="description">Description</h2>
         <p>
-          <a href="http://htmlhint.com">HTMLHint</a> est un outil pour vérifier
-          les documents <strong>HTML</strong>.
+          <a href="http://standardjs.com/">JavaScript Standard Style</a> est un
+          analyseur syntaxique pour les codes <strong>JavaScript</strong>. Son
+          but est de proposer un linter simple d'utilisation et tenter de
+          fournir un standard.
         </p>
       </section>
 
       <section>
         <h2 id="configuration">Configuration</h2>
         <p>
-          Toutes les
-          <a href="//github.com/yaniswang/HTMLHint/wiki/Rules">règles</a>
-          peuvent être utilisées dans Metalint.
+          Ce linter n'a aucune configuration. Les règles sont fixes (il n'est
+          pas possible d'en désactiver).
         </p>
       </section>
 
@@ -60,43 +61,28 @@
         <div class="tabs">
           <ul>
             <li><code>metalint.json</code></li>
-            <li><code>htmlhint.json</code></li>
           </ul>
           <pre><code class="language-javascript">
 {
     "patterns": ["!node_modules/**", "**"],
     "checkers": [
         {
-            "patterns": "**/*.html",
-            "linters": "htmlhint"
+            "patterns": ["!*/*.min.js", "**/*.js"],
+            "linters": "standard"
         }
     ]
-}
-          </code></pre>
-          <pre><code class="language-javascript">
-{
-    "tagname-lowercase": true,
-    "attr-lowercase": true,
-    "attr-no-duplication": true,
-    "tag-self-close": true,
-    "id-unique": true,
-    "title-require": true,
-    "head-script-disabled": true,
-    "alt-require": true,
-    "doctype-html5": true,
-    "inline-style-disabled": true,
-    "inline-script-disabled": true,
-    "space-tab-mixed-disabled": "space"
 }
           </code></pre>
         </div>
       </section>
 
       <section>
-        <h2 id="others">Autres linters HTML</h2>
+        <h2 id="others">Autres linters JavaScript</h2>
         <ul>
-          <li><a href="../html5-lint/">html5-lint</a></li>
-          <li><a href="../htmllint/">htmllint</a></li>
+          <li><a href="../eslint/">ESLint</a></li>
+          <li><a href="../flow-bin/">Flow</a></li>
+          <li><a href="../jscs/">JSCS</a></li>
+          <li><a href="../jshint/">JSHint</a></li>
         </ul>
       </section>
     </main>

@@ -43,7 +43,7 @@ $(window).scroll(function () {
             lastId = id;
             // Set/remove active class
             $contents.parent().removeClass("active")
-                     .end().filter("[href=#" + id + "]")
+                     .end().filter("[href=\"#" + id + "\"]")
                      .parent().addClass("active");
         }
     }
@@ -75,6 +75,6 @@ for (var tab of document.querySelectorAll(".tabs > ul li")) {
     }; // onclick()
 }
 // Afficher le contenu du premier onglet.
-	for (var first of document.querySelectorAll(".tabs > ul li:first-child")) {
+for (var first of document.querySelectorAll(".tabs > ul li:first-child")) {
     first.click();
 }

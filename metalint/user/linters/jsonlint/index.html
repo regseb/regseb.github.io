@@ -52,6 +52,33 @@
           Ce linter ne fournit aucune configuration.
         </p>
       </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <div class="tabs">
+          <ul>
+            <li><code>metalint.json</code></li>
+          </ul>
+          <pre><code class="language-javascript">
+{
+    "patterns": ["!node_modules/**", "**"],
+    "checkers": [
+        {
+            "patterns": "**/*.json",
+            "linters": { "jsonlint": null }
+        }
+    ]
+}
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="others">Autres linters JSON</h2>
+        <ul>
+          <li><a href="../json-lint/">JSON-Lint</a></li>
+        </ul>
+      </section>
     </main>
 
     <aside><ul></ul></aside>

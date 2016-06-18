@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HTMLHint · Metalint</title>
+    <title>stylelint · Metalint</title>
     <link rel="icon" type="image/png" href="../../../img/favicon.svg" />
     <link rel="stylesheet" href="../../../lib/prism.css" />
     <link rel="stylesheet" href="../../../global.css" />
@@ -35,22 +35,21 @@
       </ol>
     </nav>
 
-    <header><h1>HTMLHint</h1></header>
+    <header><h1>stylelint</h1></header>
 
     <main>
       <section>
         <h2 id="description">Description</h2>
         <p>
-          <a href="http://htmlhint.com">HTMLHint</a> est un outil pour vérifier
-          les documents <strong>HTML</strong>.
+          <a href="http://stylelint.io">stylelint</a> est un outil pour vérifier
+          les <strong>feuilles de style (CSS)</strong>.
         </p>
       </section>
 
       <section>
         <h2 id="configuration">Configuration</h2>
         <p>
-          Toutes les
-          <a href="//github.com/yaniswang/HTMLHint/wiki/Rules">règles</a>
+          Toutes les <a href="http://stylelint.io/user-guide/rules">règles</a>
           peuvent être utilisées dans Metalint.
         </p>
       </section>
@@ -60,43 +59,41 @@
         <div class="tabs">
           <ul>
             <li><code>metalint.json</code></li>
-            <li><code>htmlhint.json</code></li>
+            <li><code>stylelint.json</code></li>
           </ul>
           <pre><code class="language-javascript">
 {
     "patterns": ["!node_modules/**", "**"],
     "checkers": [
         {
-            "patterns": "**/*.html",
-            "linters": "htmlhint"
+            "patterns": "**/*.css",
+            "linters": "stylelint"
         }
     ]
 }
           </code></pre>
           <pre><code class="language-javascript">
 {
-    "tagname-lowercase": true,
-    "attr-lowercase": true,
-    "attr-no-duplication": true,
-    "tag-self-close": true,
-    "id-unique": true,
-    "title-require": true,
-    "head-script-disabled": true,
-    "alt-require": true,
-    "doctype-html5": true,
-    "inline-style-disabled": true,
-    "inline-script-disabled": true,
-    "space-tab-mixed-disabled": "space"
+    "rules": {
+        "color-hex-case": "lower",
+        "color-hex-length": null,
+        "color-no-invalid-hex": true,
+
+        "font-family-name-quotes": "always-where-recommended",
+
+        "font-weight-notation": ["named-where-possible", {
+            "ignore": ["relative"]
+        }]
+    }
 }
           </code></pre>
         </div>
       </section>
 
       <section>
-        <h2 id="others">Autres linters HTML</h2>
+        <h2 id="others">Autres linters CSS</h2>
         <ul>
-          <li><a href="../html5-lint/">html5-lint</a></li>
-          <li><a href="../htmllint/">htmllint</a></li>
+          <li><a href="../csslint/">csslint</a></li>
         </ul>
       </section>
     </main>

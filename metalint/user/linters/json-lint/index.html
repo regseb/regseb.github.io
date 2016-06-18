@@ -54,6 +54,33 @@
           utilisable dans Metalint.
         </p>
       </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <div class="tabs">
+          <ul>
+            <li><code>metalint.json</code></li>
+          </ul>
+          <pre><code class="language-javascript">
+{
+    "patterns": ["!node_modules/**", "**"],
+    "checkers": [
+        {
+            "patterns": "**/*.json",
+            "linters": { "json-lint": { "comments": false } }
+        }
+    ]
+}
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="others">Autres linters JSON</h2>
+        <ul>
+          <li><a href="../jsonlint/">JSONLint</a></li>
+        </ul>
+      </section>
     </main>
 
     <aside><ul></ul></aside>
