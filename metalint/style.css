@@ -1,22 +1,43 @@
-nav > a {
-    opacity: 0;
+header a {
+    background-color: #212121;
+    border-radius: 50%;
+    box-shadow:
+        0 1px 1.5px 0 rgba(0, 0, 0, 0.12),
+        0 1px 1px   0 rgba(0, 0, 0, 0.24);
+    display: inline-block;
+    float: right;
+    height: 2em;
+    margin-left: 1em;
+    width: 2em;
+}
+header a:hover {
+    background-color: black;
+}
+header a img {
+    margin: 15%;
+    width: 70%;
 }
 
 main {
-    text-align: center;
     margin: 0;
-    width: 90%;
     margin-left: 5%;
     margin-right: 5%;
+    width: 90%;
+}
+
+#snippet {
+    text-align: center;
+}
+#snippet li {
+    display: inline-block;
 }
 #snippet a {
-    width: 300px;
-    height: 100px;
-    display: inline-block;
-    margin: 1em;
     color: black;
+    display: inline-block;
+    height: 100px;
+    margin: 1em;
     padding-left: 100px;
-    text-decoration: none;
+    width: 300px;
 }
 #snippet a:hover {
     color: #ff9800;

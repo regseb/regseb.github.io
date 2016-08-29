@@ -10,7 +10,10 @@
   </head>
   <body>
     <nav>
-      <a href="../../../">Metalint</a>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <div><a href="..">Linters</a><span> · JSCS</span></div>
       <ol>
         <li>
           <span>Guide utilisateur</span>
@@ -48,6 +51,19 @@
           <strong>JSCS est obsolète !</strong> Il va être intégré dans le linter
           <a href="../eslint/">ESLint</a>.
         </p>
+      </section>
+
+      <section>
+        <h2 id="install">Installation</h2>
+        <p>
+          JSCS doit-être installé avec une des deux commandes suivantes selon
+          que Metalint ait été installé en global ou dans les dépendances de
+          dévéloppement d'un paquet.
+        </p>
+        <pre><code>
+npm install -g jscs
+npm install --save-dev jscs
+        </code></pre>
       </section>
 
       <section>

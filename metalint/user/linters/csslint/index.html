@@ -10,7 +10,10 @@
   </head>
   <body>
     <nav>
-      <a href="../../../">Metalint</a>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <div><a href="..">Linters</a><span> · CSSLint</span></div>
       <ol>
         <li>
           <span>Guide utilisateur</span>
@@ -44,6 +47,19 @@
           <a href="//github.com/CSSLint/csslint">CSSLint</a> est un outil pour
           vérifier les <strong>feuilles de style (CSS)</strong>.
         </p>
+      </section>
+
+      <section>
+        <h2 id="install">Installation</h2>
+        <p>
+          CSSLint doit-être installé avec une des deux commandes suivantes selon
+          que Metalint ait été installé en global ou dans les dépendances de
+          dévéloppement d'un paquet.
+        </p>
+        <pre><code>
+npm install -g csslint
+npm install --save-dev csslint
+        </code></pre>
       </section>
 
       <section>

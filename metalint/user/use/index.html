@@ -3,14 +3,17 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Utilisation | Metalint</title>
+    <title>Utilisation · Metalint</title>
     <link rel="icon" type="image/png" href="../../img/favicon.svg" />
     <link rel="stylesheet" href="../../lib/prism.css" />
     <link rel="stylesheet" href="../../global.css" />
   </head>
   <body>
     <nav>
-      <a href="../../">Metalint</a>
+      <a href="../.." title="Metalint">
+        <img src="../../img/logo.svg" alt="Metalint" />
+      </a>
+      <div><span>Utilisation</span></div>
       <ol>
         <li>
           <span>Guide utilisateur</span>
@@ -135,7 +138,7 @@ metalint -c conf/lint/metalint.json
                   Vérifier aussi les fichiers / répertoires cachés.
                 </p>
                 <p>
-                  <u>Exemple</u> : surcharger le configuration pour vérifier les
+                  <u>Exemple</u> : surcharger la configuration pour vérifier les
                   fichiers cachés.
                 </p>
                 <pre><code class="language-shell">
@@ -227,12 +230,12 @@ metalint -p "node_module/jshint/**" -p "node_module/jscs/**"
               <td>
                 <p>
                   Définir le rapporteur utilisé pour afficher les résultats.
-                  Consultez la <a href="../reporters/">liste des rapporteurs</a>
+                  Consultez la liste des <a href="../reporters/">rapporteurs</a>
                   pour connaitre les valeurs possibles. Vous pouvez aussi donner
                   le lien vers votre propre rapporteur.
                 </p>
                 <p>
-                  <u>Exemple</u> : utiliser la rapporteur retournant le résultat
+                  <u>Exemple</u> : utiliser le rapporteur retournant le résultat
                   dans un objet JSON.
                 </p>
                 <pre><code class="language-shell">
@@ -285,24 +288,38 @@ metalint --version
 
       <section>
         <h2 id="exemple">Exemple</h2>
-        <pre><code class="language-shell">
-$ ls -a
-.   ..   .metalint   script.js
-
-$ cat .metalint/metalint.json
+        <div class="tabs">
+          <ul>
+            <li><code>.metalint/metalint.json</code></li>
+            <li><code>.metalint/eslint.json</code></li>
+            <li><code>script.js</code></li>
+          </ul>
+          <pre><code class="language-javascript">
 {
     "checkers": [
         {
-            "linters": { "jshint": null }
+            "linters": "eslint"
         }
     ]
 }
-
-$ cat script.js
+          </code></pre>
+          <pre><code class="language-javascript">
+{
+    "rules": {
+        "semi": ["error", "always"]
+    }
+}
+          </code></pre>
+          <pre><code class="language-javascript">
 function hello() {
     alert("Hello World!")
 }
-
+          </code></pre>
+        </div>
+        <p>
+          Voici des exemples d'utilisation :
+        </p>
+        <pre><code class="language-shell">
 $ metalint
 script.js: 1 error.
 ERROR: Missing semicolon.
@@ -316,23 +333,24 @@ $ metalint -r unix
 script.js:2:26: Missing semicolon.
 
 $ metalint --reporter unix -vv
-script.js:2:26: Missing semicolon. (jshint.W033)
+script.js:2:26: Missing semicolon. (eslint.semi)
 
 $ metalint --level=FATAL
         </code></pre>
         <p>
           Dans cette exemple, un seul linter est utilisé :
-          <a href="../linters/jshint/">JSHint</a> (avec les paramètres par
-          défaut). Metalint vérifira que le fichier <code>script.js</code> car
-          le répertoire <code>.metalint/</code> est caché et par défaut les
-          fichiers cachés sont ignorés (voir la propriété
+          <a href="../linters/eslint/">ESLint</a> (avec une seule règle sur les
+          point-virgules à la fin des lignes). Metalint vérifira que le fichier
+          <code>script.js</code> car le répertoire <code>.metalint/</code> est
+          caché et par défaut les fichiers cachés sont ignorés (voir la
+          propriété
           <a href="../config/#metalintjson_hidden"><code>hidden</code></a> du
           fichier de configuration).
         </p>
         <p>
           Le premier appel à <code>metalint</code> utilise aucune option,
-          Metalint utilise donc les valeurs définies dans le
-          <a href="../config/">fichier de configuration</a>.
+          Metalint utilise donc les valeurs définies dans le fichier de
+          <a href="../config/">configuration</a>.
         </p>
         <p>
           Dans le deuxième et le troisème appel, le

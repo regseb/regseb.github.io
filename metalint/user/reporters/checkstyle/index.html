@@ -10,7 +10,10 @@
   </head>
   <body>
     <nav>
-      <a href="../../../">Metalint</a>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <div><a href="..">Rapporteurs</a><span> · checkstyle</span></div>
       <ol>
         <li>
           <span>Guide utilisateur</span>
@@ -45,15 +48,15 @@
           de l'outil <a href="http://checkstyle.sourceforge.net">Checkstyle</a>.
         </p>
         <p>
-          En passant le niveau de verbosité à <code>1</code> : le document XML
-          est indenté.
+          La verbosité donne le niveau de d'indentation. Avec la verbosité à
+          <code>0</code>, le résultat n'a pas de retour à la ligne.
         </p>
       </section>
 
       <section>
         <h2 id="example">Exemple</h2>
         <p>
-          Voici un rapport (avec la verbosité à <code>1</code>) où deux fichiers
+          Voici un rapport (avec la verbosité à <code>2</code>) où deux fichiers
           sont vérifiés : <code>global.js</code> qui n'a aucune erreur et
           <code>script.js</code> qui contient deux erreurs (une remontée par
           <a href="../../linters/jshint/">JSHint</a> et l'autre par

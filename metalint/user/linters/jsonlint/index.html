@@ -10,7 +10,10 @@
   </head>
   <body>
     <nav>
-      <a href="../../../">Metalint</a>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <div><a href="..">Linters</a><span> · JSONLint</span></div>
       <ol>
         <li>
           <span>Guide utilisateur</span>
@@ -44,6 +47,19 @@
           <a href="//zaach.github.io/jsonlint/">JSONLint</a> est un outil pour
           vérifier les fichiers contenant un objet <strong>JSON</strong>.
         </p>
+      </section>
+
+      <section>
+        <h2 id="install">Installation</h2>
+        <p>
+          JSONLint doit-être installé avec une des deux commandes suivantes
+          selon que Metalint ait été installé en global ou dans les dépendances
+          de dévéloppement d'un paquet.
+        </p>
+        <pre><code>
+npm install -g jsonlint
+npm install --save-dev jsonlint
+        </code></pre>
       </section>
 
       <section>

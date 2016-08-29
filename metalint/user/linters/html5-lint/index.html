@@ -10,7 +10,10 @@
   </head>
   <body>
     <nav>
-      <a href="../../../">Metalint</a>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <div><a href="..">Linters</a><span> · html5-lint</span></div>
       <ol>
         <li>
           <span>Guide utilisateur</span>
@@ -44,6 +47,19 @@
           <a href="//github.com/mozilla/html5-lint">html5-lint</a> est un outil
           pour vérifier les documents <strong>HTML5</strong>.
         </p>
+      </section>
+
+      <section>
+        <h2 id="install">Installation</h2>
+        <p>
+          html5-lint doit-être installé avec une des deux commandes suivantes
+          selon que Metalint ait été installé en global ou dans les dépendances
+          de dévéloppement d'un paquet.
+        </p>
+        <pre><code>
+npm install -g html5-lint
+npm install --save-dev html5-lint
+        </code></pre>
       </section>
 
       <section>

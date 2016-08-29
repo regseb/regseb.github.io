@@ -10,7 +10,12 @@
   </head>
   <body>
     <nav>
-      <a href="../../../">Metalint</a>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <div>
+        <a href="..">Linters</a><span> · JavaScript Standard Style</span>
+      </div>
       <ol>
         <li>
           <span>Guide utilisateur</span>
@@ -46,6 +51,19 @@
           but est de proposer un linter simple d'utilisation et tenter de
           fournir un standard.
         </p>
+      </section>
+
+      <section>
+        <h2 id="install">Installation</h2>
+        <p>
+          JavaScript Standard Style doit-être installé avec une des deux
+          commandes suivantes selon que Metalint ait été installé en global ou
+          dans les dépendances de dévéloppement d'un paquet.
+        </p>
+        <pre><code>
+npm install -g standard
+npm install --save-dev standard
+        </code></pre>
       </section>
 
       <section>

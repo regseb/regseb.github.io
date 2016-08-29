@@ -10,7 +10,10 @@
   </head>
   <body>
     <nav>
-      <a href="../../">Metalint</a>
+      <a href="../.." title="Metalint">
+        <img src="../../img/logo.svg" alt="Metalint" />
+      </a>
+      <div><span>Installation</span></div>
       <ol>
         <li>
           <span>Guide utilisateur</span>
@@ -61,79 +64,42 @@
         <pre><code>
 npm install -g metalint
         </code></pre>
+        <p>
+          Il faut ensuite installer en global les
+          <a href="../linters">linters</a> que vous comptez utiliser.
+        </p>
       </section>
 
       <section>
         <h2 id="integration">Intégration</h2>
         <p>
-          Si vous utilisez npm dans votre projet, vous pouvez y intégrer le
-          lancement de Metalint. Pour cela : insérez Metalint dans les
+          Si vous utilisez npm dans votre projet, vous pouvez ajouter Metalint
+          dans les
           <a href="//docs.npmjs.com/files/package.json#devdependencies">
-            dépendances de développement</a> du fichier
-          <strong>package.json</strong>. Puis ajoutez la propriété
-          <code>"lint"</code> dans les
-          <a href="//docs.npmjs.com/misc/scripts"><code>"scripts"</code></a> :
+            dépendances de développement</a> :
+        </p>
+        <pre><code>
+npm install --save-dev metalint
+        </code></pre>
+        <p>
+          Il faut ensuite ajouter aussi les <a href="../linters">linters</a>
+          dans les dépendances de développement.
+        </p>
+        <p>
+          Puis ajoutez la propriété <code>"lint"</code> dans les
+          <a href="//docs.npmjs.com/misc/scripts"><code>"scripts"</code></a> du
+          fichier <strong>package.json</strong> :
         </p>
         <pre><code class="language-javascript">
 {
     "scripts": {
         "lint": "metalint"
-    },
-    "devDependencies": {
-        "metalint": "^0.5.3"
     }
 }
         </code></pre>
         <p>
-          Après avoir installé les dépendances de votre projet :
-          <code>npm install</code>, vous pourrez lancer Metalint avec la
-          commande suivante :
+          Metalint sera utilisable avec la commande : <code>npm run lint</code>
         </p>
-        <pre><code>
-npm run lint
-        </code></pre>
-      </section>
-
-      <section>
-        <h2 id="update">Mise à jour</h2>
-        <p>
-          Pour mettre à jour Metalint, il vous suffit d'entrer la ligne de
-          commande suivante :
-        </p>
-        <pre><code>
-npm update -g metalint
-        </code></pre>
-        <p>
-          La numérotation de version respecte les spécifications de la
-          <a href="http://semver.org/lang/fr/">gestion sémantique de version
-            2.0.0</a> (<strong>SemVer</strong>). Voici un extrait des
-          spécifications :
-        </p>
-        <blockquote cite="http://semver.org/lang/fr/">
-          <p>
-            Étant donné un numéro de version MAJEUR.MINEUR.CORRECTIF, il faut
-            incrémenter :
-          </p>
-          <ol>
-            <li>
-              le numéro de version MAJEUR quand il y a des changements
-              rétro-incompatibles,
-            </li>
-            <li>
-              le numéro de version MINEUR quand il y a des changements
-              rétro-compatibles,
-            </li>
-            <li>
-              le numéro de version de CORRECTIF quand il y a des corrections
-              d’anomalies rétro-compatibles
-            </li>
-          </ol>
-          <p>
-            Des libellés supplémentaires peuvent être ajoutés pour les versions
-            de pré-livraison et pour des méta-données de construction sous
-            forme d'extension du format MAJEURE.MINEURE.CORRECTIF.
-          </p>
-        </blockquote>
       </section>
 
       <section>
