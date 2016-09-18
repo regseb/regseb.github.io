@@ -1,10 +1,10 @@
 @font-face {
-    font-family: "icon";
+    font-family: icon;
     src: url("img/icon.ttf");
 }
-.icn-download:before { font-family: "icon"; content: "\e602  "; }
-.icn-github:before   { font-family: "icon"; content: "\e600  "; }
-.icn-example:before  { font-family: "icon"; content: "\e601  "; }
+.icn-download::before { content: "\e602  "; font-family: icon; }
+.icn-github::before   { content: "\e600  "; font-family: icon; }
+.icn-example::before  { content: "\e601  "; font-family: icon; }
 
 html {
     padding-bottom: 1em;
@@ -33,7 +33,7 @@ abbr[title] {
 }
 
 table {
-    width: 100%
+    width: 100%;
 }
 th, td {
     color: #f5f5f5;
