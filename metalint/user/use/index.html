@@ -46,7 +46,7 @@
         <p>
           En installant <a href="../install/#download">Metalint en global</a>,
           un exécutable homonyme est ajouté dans votre <code>PATH</code>. Pour
-          vérifier que l'installation s'est bien déroulée, vous pouvez exécuter
+          analyser que l'installation s'est bien déroulée, vous pouvez exécuter
           la ligne de commande suivant :
         </p>
         <pre><code class="language-powershell">
@@ -66,8 +66,8 @@ $ npm run lint -- --version
         </p>
         <ul>
           <li>
-            <strong><code>0</code></strong> : les vérifications ont remonté que
-            des informations et des avertissements ;
+            <strong><code>0</code></strong> : les analyses ont remonté que des
+            informations et des avertissements ;
           </li>
           <li>
             <strong><code>1</code></strong> : des erreurs normales (mais aucune
@@ -108,7 +108,7 @@ $ npm run lint -- --version
             </tr>
           </thead>
           <tbody>
-            <tr id="options_config">
+            <tr id="options-config">
               <td>
                 <code><strong>-c</strong> CONFIG</code><br />
                 <code><strong>--config=</strong>CONFIG</code>
@@ -128,17 +128,17 @@ metalint -c conf/lint/metalint.json
                 </code></pre>
               </td>
             </tr>
-            <tr id="options_hidden">
+            <tr id="options-hidden">
               <td>
                 <code><strong>-h</strong></code><br />
                 <code><strong>--hidden</strong></code>
               </td>
               <td>
                 <p>
-                  Vérifier aussi les fichiers / répertoires cachés.
+                  Analyser aussi les fichiers / répertoires cachés.
                 </p>
                 <p>
-                  <u>Exemple</u> : surcharger la configuration pour vérifier les
+                  <u>Exemple</u> : surcharger la configuration pour analyser les
                   fichiers cachés.
                 </p>
                 <pre><code class="language-shell">
@@ -146,7 +146,7 @@ metalint -h
                 </code></pre>
               </td>
             </tr>
-            <tr id="options_level">
+            <tr id="options-level">
               <td>
                 <code><strong>-l</strong> LEVEL</code><br />
                 <code><strong>--level=</strong>LEVEL</code>
@@ -184,7 +184,7 @@ metalint -l FATAL
                 </code></pre>
               </td>
             </tr>
-            <tr id="options_output">
+            <tr id="options-output">
               <td>
                 <code><strong>-o</strong> OUTPUT</code><br />
                 <code><strong>--output=</strong>OUTPUT</code>
@@ -202,7 +202,7 @@ metalint -o /tmp/metalint.log
                 </code></pre>
               </td>
             </tr>
-            <tr id="options_patterns">
+            <tr id="options-patterns">
               <td>
                 <code><strong>-p</strong> PATTERN...</code><br />
                 <code><strong>--patterns=</strong>PATTERN...</code>
@@ -210,19 +210,19 @@ metalint -o /tmp/metalint.log
               <td>
                 <p>
                   Spécifier les patrons pour filtrer les fichiers qui seront
-                  vérifiés.
+                  analysés.
                 </p>
                 <p>
-                  <u>Exemple</u> : vérifier le code source des bibliothèques
+                  <u>Exemple</u> : analyser le code source de bibliothèques
                   externes qui en temps normal ne sont pas incluse dans
                   l'arborescence.
                 </p>
                 <pre><code class="language-shell">
-metalint -p "node_module/jshint/**" -p "node_module/jscs/**"
+metalint -p "node_module/eslint/**" -p "node_module/stylelint/**"
                 </code></pre>
               </td>
             </tr>
-            <tr id="options_reporter">
+            <tr id="options-reporter">
               <td>
                 <code><strong>-r</strong> REPORTER</code><br />
                 <code><strong>--reporter=</strong>REPORTER</code>
@@ -243,7 +243,7 @@ metalint -r json
                 </code></pre>
               </td>
             </tr>
-            <tr id="options_verbose">
+            <tr id="options-verbose">
               <td>
                 <code><strong>-v</strong></code><br />
                 <code><strong>--verbose=</strong>VERBOSE</code>
@@ -260,7 +260,7 @@ metalint -vv
                 </code></pre>
               </td>
             </tr>
-            <tr id="options_help">
+            <tr id="options-help">
               <td><code><strong>--help</strong></code></td>
               <td>
                 <p>
@@ -271,7 +271,7 @@ metalint --help
                 </code></pre>
               </td>
             </tr>
-            <tr id="options_version">
+            <tr id="options-version">
               <td><code><strong>--version</strong></code></td>
               <td>
                 <p>
@@ -340,11 +340,11 @@ $ metalint --level=FATAL
         <p>
           Dans cette exemple, un seul linter est utilisé :
           <a href="../linters/eslint/">ESLint</a> (avec une seule règle sur les
-          point-virgules à la fin des lignes). Metalint vérifira que le fichier
+          point-virgules à la fin des lignes). Metalint analysera que le fichier
           <code>script.js</code> car le répertoire <code>.metalint/</code> est
           caché et par défaut les fichiers cachés sont ignorés (voir la
           propriété
-          <a href="../config/#metalintjson_hidden"><code>hidden</code></a> du
+          <a href="../config/#metalintjson-hidden"><code>hidden</code></a> du
           fichier de configuration).
         </p>
         <p>

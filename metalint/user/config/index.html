@@ -72,7 +72,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr id="metalintjson_patterns">
+            <tr id="metalintjson-patterns">
               <td><code>patterns</code></td>
               <td>
                 <code>Array.&lt;string&gt;</code><br /><code>string</code>
@@ -81,7 +81,7 @@
               <td>
                 <p>
                   La liste des patrons pour filtrer les fichiers qui seront
-                  vérifiés. Par défaut, tous les fichiers seront sélectionnés.
+                  analysés. Par défaut, tous les fichiers seront sélectionnés.
                   Les patrons sont au même format que les lignes du fichier
                   <code>.gitignore</code>.
                 </p>
@@ -99,24 +99,24 @@
                 </code></pre>
               </td>
             </tr>
-            <tr id="metalintjson_hidden">
+            <tr id="metalintjson-hidden">
               <td><code>hidden</code></td>
               <td><code>boolean</code></td>
               <td><code>false</code></td>
               <td>
                 <p>
-                  Le drapeau indiquant s'il faut vérifier aussi les fichiers
+                  Le marque indiquant s'il faut analyser aussi les fichiers
                   cachés. Par défaut : non.
                 </p>
                 <p>
-                  <u>Exemple</u> : vérifier les fichiers cachés.
+                  <u>Exemple</u> : analyser les fichiers cachés.
                 </p>
                 <pre><code class="language-javascript">
 "hidden": true
                 </code></pre>
               </td>
             </tr>
-            <tr id="metalintjson_level">
+            <tr id="metalintjson-level">
               <td><code>level</code></td>
               <td><code>string</code></td>
               <td><code>"INFO"</code></td>
@@ -153,7 +153,7 @@
                 </code></pre>
               </td>
             </tr>
-            <tr id="metalintjson_reporter">
+            <tr id="metalintjson-reporter">
               <td><code>reporter</code></td>
               <td><code>string</code></td>
               <td><code>"console"</code></td>
@@ -175,7 +175,7 @@
                 </code></pre>
               </td>
             </tr>
-            <tr id="metalintjson_verbose">
+            <tr id="metalintjson-verbose">
               <td><code>verbose</code></td>
               <td><code>number</code></td>
               <td><code>0</code></td>
@@ -194,7 +194,7 @@
                 </code></pre>
               </td>
             </tr>
-            <tr id="metalintjson_output">
+            <tr id="metalintjson-output">
               <td><code>output</code></td>
               <td><code>string</code></td>
               <td><code>null</code></td>
@@ -217,13 +217,13 @@
                 </code></pre>
               </td>
             </tr>
-            <tr id="metalintjson_checkers">
+            <tr id="metalintjson-checkers">
               <td><code>checkers</code></td>
               <td><code>Array</code></td>
               <td> - </td>
               <td>
                 <p>
-                  La liste des checkers. Un checker s'occupe de vérifier une
+                  La liste des checkers. Un checker s'occupe d'analyser une
                   catégorie de fichiers : les feuilles de styles, les fichiers
                   de configuration au format JSON, les scripts JavaScript
                   frontaux, ...
@@ -254,7 +254,7 @@
             </tr>
           </thead>
           <tbody>
-            <tr id="checkers_patterns">
+            <tr id="checkers-patterns">
               <td><code>patterns</code></td>
               <td>
                 <code>Array.&lt;string&gt;</code><br /><code>string</code>
@@ -271,7 +271,7 @@
                   une <code>string</code> en argument.
                 </p>
                 <p>
-                  <u>Exemple</u> : vérifier les fichiers JavaScript, sauf ce
+                  <u>Exemple</u> : analyser les fichiers JavaScript, sauf ce
                   minifiés.
                 </p>
                 <pre><code class="language-javascript">
@@ -279,19 +279,19 @@
                 </code></pre>
               </td>
             </tr>
-            <tr id="checkers_hidden">
+            <tr id="checkers-hidden">
               <td><code>hidden</code></td>
               <td><code>boolean</code></td>
-              <td><code><a href="#metalintjson_hidden">hidden</a></code></td>
+              <td><code><a href="#metalintjson-hidden">hidden</a></code></td>
               <td>
                 <p>
-                  L'indicateur indiquant s'il faut vérifier aussi les fichiers
+                  La marque indiquant s'il faut analyser aussi les fichiers
                   cachés pour ce checker. Par défaut : c'est la valeur de la
                   propriété globale
-                  <code><a href="#mtealintjonsèhidden">hidden</a></code>.
+                  <code><a href="#metalintjson-hidden">hidden</a></code>.
                 </p>
                 <p>
-                  <u>Exemple</u> : ne pas vérifier les fichiers cachés pour ce
+                  <u>Exemple</u> : ne pas analyser les fichiers cachés pour ce
                   checker.
                 </p>
                 <pre><code class="language-javascript">
@@ -299,10 +299,10 @@
                 </code></pre>
               </td>
             </tr>
-            <tr id="checkers_level">
+            <tr id="checkers-level">
               <td><code>level</code></td>
               <td><code>string</code></td>
-              <td><code><a href="#metalintjson_level">level</a></code></td>
+              <td><code><a href="#metalintjson-level">level</a></code></td>
               <td>
                 <p>
                   Le niveau de sévérité affiché. S'il n'est pas renseigné,
@@ -324,7 +324,7 @@
                 </code></pre>
               </td>
             </tr>
-            <tr id="checker_linters">
+            <tr id="checker-linters">
               <td><code>linters</code></td>
               <td>
                 <code>Object</code><br />
@@ -413,7 +413,7 @@
             <p>
               utiliser un fichier de configuration spécifique
               (<code>"jshint_front.json"</code>) en plus de la configuration
-              globale (<code>"jshint.json"</code>) pour vérifier les scripts
+              globale (<code>"jshint.json"</code>) pour analyser les scripts
               JavaScript frontaux avec le linter
               <a href="../linters/jshint/">JSHint</a>.
             </p>
@@ -490,18 +490,18 @@ $ head .metalint/jscs.json
     "disallowKeywordsInComments": true,
         </code></pre>
         <p>
-          Dans cet exemple de configuration, Metalint vérifie les fichiers
+          Dans cet exemple de configuration, Metalint analyse les fichiers
           <strong>JavaScript</strong>, <strong>CSS</strong> et
           <strong>JSON</strong>.
         </p>
         <p>
-          Toutes les fichiers (même ce cachés) du projet seront vérifiés sauf
+          Toutes les fichiers (même ce cachés) du projet seront analysés sauf
           ce présents dans les répertoires <code>.git/</code> et
           <code>*_modules/</code>. Trois checkers sont ensuite configurés :
         </p>
         <ul>
           <li>
-            Le premier pour vérifier les fichiers JavaScript non-minifés avec
+            Le premier pour analyser les fichiers JavaScript non-minifés avec
             les linters <a href="../linters/jscs/">JSCS</a> et
             <a href="../linters/jshint/">JSHint</a>. Le répertoire
             <code>.metalint/</code> devra avoir deux fichiers
@@ -512,13 +512,13 @@ $ head .metalint/jscs.json
             avec la documentation pour les utiliser.
           </li>
           <li>
-            Le deuxième checker vérifie les feuilles de style grâce à
+            Le deuxième checker analyse les feuilles de style grâce à
             <a href="../linters/csslint/">CSSLint</a>. Le dossier
             <code>.metalint/</code> devra aussi avoir le fichier
             <code>csslint.json</code> où sera la configuration du linter.
           </li>
           <li>
-            Le dernier vérifie les fichiers contenant un objet JSON.
+            Le dernier analyse les fichiers contenant un objet JSON.
             <a href="../linters/jsonlint/">JSONLint</a> est utilisé comme
             linter et la configuration est directement renseignée dans le
             fichier <code>metalint.json</code>. Dans l'exemple, les
@@ -529,7 +529,7 @@ $ head .metalint/jscs.json
         <h3>Frontal / Arrière-plan</h3>
         <p>
           Si votre projet est un site Internet propulsé par Node.js et que vous
-          souhaitez vérifier le JavaScript exécuté des deux côtés (sur serveur
+          souhaitez analyser le JavaScript exécuté des deux côtés (sur serveur
           et dans le navigateur) : l'objet JSON ci-dessus vous donne un exemple.
         </p>
         <pre><code class="language-javascript">
@@ -547,7 +547,7 @@ $ head .metalint/jscs.json
 }
         </code></pre>
         <p>
-          Le premier checker vérifie le code du serveur : tous les fichiers
+          Le premier checker analyse le code du serveur : tous les fichiers
           JavaScript sauf ce présents dans le répertoire <code>public/</code>.
           Le fichier <code>eslint.json</code> contient les options common pour
           <a href="../linters/eslint/">ESLint</a>. Tandis que
@@ -555,7 +555,7 @@ $ head .metalint/jscs.json
           serveur.
         </p>
         <p>
-          Pour le second checker : il vérifie les fichiers JavaScript qui seront
+          Pour le second checker : il analyse les fichiers JavaScript qui seront
           exécutés dans la navigateur du client. <code>eslint.json</code> est
           aussi fournit à ESLint, mais avec le fichier
           <code>eslint_front.json</code> pour options liées aux navigateurs.

@@ -30,31 +30,23 @@ main {
 }
 #snippet li {
     display: inline-block;
+    margin: 1em;
+    text-align: center;
+}
+#snippet img {
+    float: left;
+    opacity: 0.54;
 }
 #snippet a {
-    color: black;
+    border-left: 1px solid #737373;
+    color: #212121;
     display: inline-block;
-    height: 100px;
-    margin: 1em;
-    padding-left: 100px;
+    height: 48px;
+    margin-left: 8px;
+    padding-left: 8px;
     width: 300px;
 }
 #snippet a:hover {
     color: #ff9800;
     text-decoration: none;
-}
-.icn-linters {
-    background: url("img/linters.svg") no-repeat;
-}
-.icn-install {
-    background: url("img/install.svg") no-repeat;
-}
-.icn-config {
-    background: url("img/config.svg") no-repeat;
-}
-.icn-use {
-    background: url("img/use.svg") no-repeat;
-}
-.icn-reporters {
-    background: url("img/reporters.svg") no-repeat;
 }
