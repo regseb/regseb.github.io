@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add-ons Linter · Metalint</title>
+    <link rel="icon" type="image/png" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" href="../../../lib/prism.css" />
+    <link rel="stylesheet" href="../../../global.css" />
+  </head>
+  <body>
+    <nav>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <div><a href="..">Linters</a><span> · Add-ons Linter</span></div>
+      <ol>
+        <li>
+          <span>Guide utilisateur</span>
+          <ul>
+            <li><a href="../../install/">Installation</a></li>
+            <li><a href="../../config/">Configuration</a></li>
+            <li><a href="../../use/">Utilisation</a></li>
+            <li><hr /></li>
+            <li><a href="../../linters/">Linters</a></li>
+            <li><a href="../../reporters/">Rapporteurs</a></li>
+          </ul>
+        </li>
+        <li>
+          <span>Guide développeur</span>
+          <ul>
+            <li><a href="../../../dev/source/">Code source</a></li>
+            <li><a href="../../../dev/api/">API</a></li>
+            <li><a href="../../../dev/linter/">Linter</a></li>
+            <li><a href="../../../dev/reporter/">Rapporteur</a></li>
+          </ul>
+        </li>
+      </ol>
+    </nav>
+
+    <header><h1>Add-ons Linter</h1></header>
+
+    <main>
+      <section>
+        <h2 id="description">Description</h2>
+        <p>
+          <a href="//github.com/mozilla/addons-linter">Add-ons Linter</a> est un
+          validateur pour les add-ons
+          (<a href="//developer.mozilla.org/fr/docs/XPI">XPI</a>) du navigateur
+          <a href="//www.mozilla.org/fr/firefox/new/">Firefox</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="install">Installation</h2>
+        <p>
+          Add-ons Linter doit-être installé avec une des deux commandes
+          suivantes selon que Metalint ait été installé en global ou dans les
+          dépendances de dévéloppement d'un paquet.
+        </p>
+        <pre><code>
+npm install -g addons-liner
+npm install --save-dev addons-linter
+        </code></pre>
+      </section>
+
+      <section>
+        <h2 id="configuration">Configuration</h2>
+        <p>
+          Les <a href="//mozilla.github.io/addons-linter/">règles</a> ne sont
+          pas configurables.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <div class="tabs">
+          <ul>
+            <li><code>metalint.json</code></li>
+          </ul>
+          <pre><code class="language-javascript">
+{
+    "patterns": ["!node_modules/**", "**"],
+    "checkers": [
+        {
+            "patterns": "**/*.xpi",
+            "linters": { "addons-linter": null }
+        }
+    ]
+}
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="others">Autres linters pour les add-ons Firefox</h2>
+        <p>
+          Add-ons Linter est le seul linter géré par Metalint pour analyser les
+          add-ons Firefox.
+        </p>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+
+    <script src="../../../lib/jquery.min.js"></script>
+    <script src="../../../global.js"></script>
+    <script src="../../../lib/prism.min.js"></script>
+  </body>
+</html>
