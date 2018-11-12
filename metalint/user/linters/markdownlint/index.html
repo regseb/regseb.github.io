@@ -4,48 +4,25 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MarkdownLint · Metalint</title>
-    <link rel="icon" type="image/png" href="../../../img/favicon.svg" />
-    <link rel="stylesheet" href="../../../lib/prism.css" />
-    <link rel="stylesheet" href="../../../global.css" />
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
   </head>
   <body>
-    <nav>
+    <header>
       <a href="../../.." title="Metalint">
         <img src="../../../img/logo.svg" alt="Metalint" />
       </a>
-      <div><a href="..">Linters</a><span> · MarkdownLint</span></div>
-      <ol>
-        <li>
-          <span>Guide utilisateur</span>
-          <ul>
-            <li><a href="../../install/">Installation</a></li>
-            <li><a href="../../config/">Configuration</a></li>
-            <li><a href="../../use/">Utilisation</a></li>
-            <li><hr /></li>
-            <li><a href="../../linters/">Linters</a></li>
-            <li><a href="../../reporters/">Rapporteurs</a></li>
-          </ul>
-        </li>
-        <li>
-          <span>Guide développeur</span>
-          <ul>
-            <li><a href="../../../dev/source/">Code source</a></li>
-            <li><a href="../../../dev/api/">API</a></li>
-            <li><a href="../../../dev/linter/">Linter</a></li>
-            <li><a href="../../../dev/reporter/">Rapporteur</a></li>
-          </ul>
-        </li>
-      </ol>
-    </nav>
-
-    <header><h1>MarkdownLint</h1></header>
+      <h1><a href="..">Linters</a> · MarkdownLint</h1>
+      <nav></nav>
+    </header>
 
     <main>
       <section>
         <h2 id="description">Description</h2>
         <p>
-          <a href="//github.com/mivok/markdownlint">MarkdownLint</a> est un
-          outil pour analyser le code source des fichiers
+          <a href="https://github.com/mivok/markdownlint">MarkdownLint</a> est
+          un outil pour analyser le code source des fichiers
           <strong>Markdown</strong>.
         </p>
       </section>
@@ -53,13 +30,11 @@
       <section>
         <h2 id="install">Installation</h2>
         <p>
-          Markdownlint doit-être installé avec une des deux commandes suivantes
-          selon que Metalint ait été installé en global ou dans les dépendances
-          de dévéloppement d'un paquet.
+          La commande suivante installe et ajoute Markdownlint dans les
+          dépendances de développement de votre projet <em>npm</em>.
         </p>
         <pre><code>
-npm install -g markdownlint
-npm install --save-dev markdownlint
+npm install markdownlint --save-dev
         </code></pre>
       </section>
 
@@ -67,12 +42,12 @@ npm install --save-dev markdownlint
         <h2 id="configuration">Configuration</h2>
         <p>
           Le fichier de configuration doit contenir un objet JSON dont les clés
-          sont les codes des règles et les valeurs : les paramètres de la
-          règles.
+          sont les codes des règles. Et les valeurs :
+          les paramètres de la règle.
         </p>
         <p>
           Toutes les
-          <a href="//github.com/mivok/markdownlint/blob/master/docs/RULES.md">
+          <a href="https://github.com/mivok/markdownlint/blob/master/docs/RULES.md">
             règles</a> peuvent être dans Metalint.
         </p>
       </section>
@@ -86,10 +61,10 @@ npm install --save-dev markdownlint
           </ul>
           <pre><code class="language-javascript">
 {
-    "patterns": ["!node_modules/**", "**"],
+    "patterns": ["!/node_modules/", "**"],
     "checkers": [
         {
-            "patterns": "**/*.md",
+            "patterns": "*.md",
             "linters": "markdownlint"
         }
     ]
@@ -97,25 +72,18 @@ npm install --save-dev markdownlint
           </code></pre>
           <pre><code class="language-javascript">
 {
-    "MD003": { "style": "atx" },
-    "MD004": { "style": "dash" },
-    "MD029": { "style": "ordered" },
-    "MD035": { "style": "---" }
+    "heading-style": { "style": "atx" },
+    "ul-style": { "style": "dash" },
+    "ol-prefix": { "style": "ordered" },
+    "hr-style": { "style": "---" }
 }
           </code></pre>
         </div>
       </section>
-
-      <section>
-        <h2 id="others">Autres linters Markdown</h2>
-        <p>
-          MarkdownLint est le seul linter géré par Metalint pour analyser les
-          fichiers <em>Markdown</em>.
-        </p>
-      </section>
     </main>
 
     <aside><ul></ul></aside>
+    <footer></footer>
 
     <script src="../../../lib/jquery.min.js"></script>
     <script src="../../../global.js"></script>

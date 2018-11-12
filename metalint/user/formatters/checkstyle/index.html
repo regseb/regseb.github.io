@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>checkstyle (Formateur) · Metalint</title>
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <h1><a href="..">Formateurs</a> · checkstyle</h1>
+      <nav></nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 id="description">Description</h2>
+        <p>
+          Ce formateur retourne un document XML ayant la structure des rapports
+          de l'outil <a href="http://checkstyle.sourceforge.net">Checkstyle</a>.
+        </p>
+        <p>
+          Une option est disponible : <code>indent</code>, pour choisir la
+          taille des indentations :
+        </p>
+        <ul>
+          <li>
+            <code>-1</code> (par défaut) : le fichier n'aura pas de retours à la
+            ligne ;
+          </li>
+          <li>
+            <code>0</code> : le document aura des retours à ligne, mais aucune
+            indentation ;
+          </li>
+          <li>
+            <code>1</code> : des retours à ligne et une indentation d'une
+            espace ;
+          </li>
+          <li>
+            <code>2</code> : une indentation de deux espaces ;
+          </li>
+          <li>
+            etc.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <pre><code class="language-javascript">
+{
+    "reporters": {
+        "formatter": "checkstyle",
+        "options": { "indent": 2 }
+    }
+}
+        </code></pre>
+        <p>
+          Deux fichiers sont analysés : <code>global.js</code> qui n'a aucune
+          erreur et <code>script.js</code> qui contient deux erreurs (une
+          remontée par <a href="../../linters/jshint/">JSHint</a> et l'autre par
+          <a href="../../linters/jscs/">JSCS</a>).
+        </p>
+        <pre><code class="language-markup">
+&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;checkstyle version="6.8"&gt;
+  &lt;file name="global.js"&gt;
+  &lt;/file&gt;
+  &lt;file name="script.js"&gt;
+    &lt;error line="255" column="36" severity="error" message="Don&amp;apos;t make functions within a loop." source="jshint.W083" /&gt;
+    &lt;error line="278" column="3" severity="error" message="Comments cannot contain the following keywords: todo, fixme" source="jscs" /&gt;
+  &lt;/file&gt;
+&lt;/checkstyle&gt;
+        </code></pre>
+      </section>
+    </main>
+
+    // FIXME Afficher le menu à droite.
+    <aside><ul></ul></aside>
+    <footer></footer>
+
+    <script src="../../../lib/jquery.min.js"></script>
+    <script src="../../../global.js"></script>
+    <script src="../../../lib/prism.min.js"></script>
+  </body>
+</html>

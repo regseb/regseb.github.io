@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TSLint · Metalint</title>
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <h1><a href="..">Linters</a> · TSLint</h1>
+      <nav></nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 id="description">Description</h2>
+        <p>
+          <a href="https://palantir.github.io/tslint/">TSLint</a> est un
+          analyseur syntaxique pour les codes <strong>TypeScript</strong>.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="install">Installation</h2>
+        <p>
+          La commande suivante installe et ajoute TSLint (et le paquet
+          <em>typescript</em>) dans les dépendances de développement de votre
+          projet <em>npm</em>.
+        </p>
+        <pre><code>
+npm install tslint typescript --save-dev
+        </code></pre>
+      </section>
+
+      <section>
+        <h2 id="configuration">Configuration</h2>
+        <p>
+          Toutes les
+          <a href="https://palantir.github.io/tslint/rules/">règles</a> peuvent
+          être utilisées dans Metalint.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <div class="tabs">
+          <ul>
+            <li><code>metalint.json</code></li>
+            <li><code>tslint.json</code></li>
+          </ul>
+          <pre><code class="language-javascript">
+{
+    "patterns": ["!/node_modules/", "**"],
+    "checkers": [
+        {
+            "patterns": "*.ts",
+            "linters": "tslint"
+        }
+    ]
+}
+          </code></pre>
+          <pre><code class="language-javascript">
+{
+    "rules": {
+        "max-line-length": {
+            "options": [120]
+        },
+        "new-parens": true,
+        "no-arg": true,
+        "no-bitwise": true,
+        "no-conditional-assignment": true,
+        "no-consecutive-blank-lines": false,
+        "no-console": {
+            "severity": "warning",
+            "options": ["debug", "info", "log", "time", "timeEnd", "trace"]
+        }
+    }
+}
+          </code></pre>
+        </div>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+    <footer></footer>
+
+    <script src="../../../lib/jquery.min.js"></script>
+    <script src="../../../global.js"></script>
+    <script src="../../../lib/prism.min.js"></script>
+  </body>
+</html>

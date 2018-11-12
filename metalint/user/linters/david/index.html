@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>David DM · Metalint</title>
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <h1><a href="..">Linters</a> · David DM</h1>
+      <nav></nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 id="description">Description</h2>
+        <p>
+          <a href="https://github.com/alanshaw/david">david</a> est un
+          utilitaire qui signale les dépendances obsolètes dans votre
+          <code>package.json</code>. C'est l'exécutable qui se cache derrière le
+          site <a href="https://david-dm.org/">david-dm.org</a>.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="install">Installation</h2>
+        <p>
+          La commande suivante installe et ajoute david dans les dépendances de
+          développement de votre projet <em>npm</em>.
+        </p>
+        <pre><code>
+npm install david --save-dev
+        </code></pre>
+      </section>
+
+      <section>
+        <h2 id="configuration">Configuration</h2>
+        <p>
+          La configuration est un objet JSON dont les propriétés peuvent-être :
+          <strong><code>"dev"</code></strong>,
+          <strong><code>"optional"</code></strong> et
+          <strong><code>"peer"</code></strong>. Et les valeurs, un booléen
+          (<code>true</code> ou <code>false</code>) pour activer / désactiver la
+          vérification des différentes dépendances. Les dépendances principales
+          sont toujours analysées. Par défaut, il faut fournir un objet vide :
+          <code>{}</code>.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <div class="tabs">
+          <ul>
+            <li><code>metalint.json</code></li>
+          </ul>
+          <pre><code class="language-javascript">
+{
+    "patterns": ["!/node_modules/", "**"],
+    "checkers": [
+        {
+            "patterns": "/package.json",
+            "linters": { "david": { "dev": true } }
+        }
+    ]
+}
+          </code></pre>
+        </div>
+        <p>
+          Cet exemple vérifie les dépendances principales et celles de
+          développements.
+        </p>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+    <footer></footer>
+
+    <script src="../../../lib/jquery.min.js"></script>
+    <script src="../../../global.js"></script>
+    <script src="../../../lib/prism.min.js"></script>
+  </body>
+</html>

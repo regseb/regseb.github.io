@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>lesshint · Metalint</title>
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <h1><a href="..">Linters</a> · lesshint</h1>
+      <nav></nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 id="description">Description</h2>
+        <p>
+          <a href="https://github.com/lesshint/lesshint">lesshint</a> est un
+          outil pour analyser les fichiers <strong>Less</strong>.
+        </p>
+
+        <div class="infobox">
+          <p>
+            Autres linters CSS (SCSS, Sass, Less) :
+            <a href="../csslint/">CSSLint</a>, <a href="../doiuse/">doiuse</a>,
+            <a href="../purgecss/">Purgecss</a> et
+            <a href="../stylelint/">stylelint</a>.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="install">Installation</h2>
+        <p>
+          La commande suivante installe et ajoute lesshint dans les dépendances
+          de développement de votre projet <em>npm</em>.
+        </p>
+        <pre><code>
+npm install lesshint --save-dev
+        </code></pre>
+      </section>
+
+      <section>
+        <h2 id="configuration">Configuration</h2>
+        <p>
+          Toutes les
+          <a href="https://github.com/lesshint/lesshint/blob/master/lib/linters/README.md">règles</a>
+          peuvent être utilisées dans Metalint. Sauf les deux options
+          spéciales <code>"fileExtensions"</code> et
+          <code>"excludedFiles"</code> qui doivent être remplacées par les
+          <a href="../../config/#metalintjson-patterns">patrons</a> du fichier
+          de configuration principale.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <div class="tabs">
+          <ul>
+            <li><code>metalint.json</code></li>
+            <li><code>lesshint.json</code></li>
+          </ul>
+          <pre><code class="language-javascript">
+{
+    "patterns": ["!/node_modules/", "**"],
+    "checkers": [
+        {
+            "patterns": ["!vendor.less", "*.less", "*.css"],
+            "linters": "lesshint"
+        }
+    ]
+}
+          </code></pre>
+          <pre><code class="language-javascript">
+{
+    "spaceAfterPropertyColon": {
+        "enabled": true,
+        "style": "one_space"
+    },
+
+    "emptyRule": true,
+
+    "importantRule": false
+}
+          </code></pre>
+        </div>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+    <footer></footer>
+
+    <script src="../../../lib/jquery.min.js"></script>
+    <script src="../../../global.js"></script>
+    <script src="../../../lib/prism.min.js"></script>
+  </body>
+</html>

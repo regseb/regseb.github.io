@@ -3,71 +3,44 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+          content="Metalint est un outil analysant tous les fichiers de votre
+                   projet." />
     <title>Metalint</title>
-    <link rel="icon" type="image/png" href="img/favicon.svg" />
-    <link rel="stylesheet" href="global.css" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="lib/prism.css" />
+    <link rel="stylesheet" media="all" href="global.css" />
+    <link rel="stylesheet" media="all" href="style.css" />
   </head>
   <body>
-    <nav>
-      <a href="." title="Metalint"><img src="img/logo.svg" alt="Metalint" /></a>
-      <div><span>Metalint</span></div>
-      <ol>
-        <li>
-          <span>Guide utilisateur</span>
-          <ul>
-            <li><a href="user/install/">Installation</a></li>
-            <li><a href="user/config/">Configuration</a></li>
-            <li><a href="user/use/">Utilisation</a></li>
-            <li><hr /></li>
-            <li><a href="user/linters/">Linters</a></li>
-            <li><a href="user/reporters/">Rapporteurs</a></li>
-          </ul>
-        </li>
-        <li>
-          <span>Guide développeur</span>
-          <ul>
-            <li><a href="dev/source/">Code source</a></li>
-            <li><a href="dev/api/">API</a></li>
-            <li><a href="dev/linter/">Linter</a></li>
-            <li><a href="dev/reporter/">Rapporteur</a></li>
-          </ul>
-        </li>
-      </ol>
-    </nav>
     <header>
+      <a href="."><img src="img/logo.svg" alt="Metalint" /></a>
       <h1>Metalint</h1>
-      <p>
-        <cite>Un linter pour les gouverner tous.</cite>
-      </p>
-      <a href="//github.com/regseb/metalint" title="GitHub">
-        <img src="img/github.svg" alt="GitHub" />
-      </a>
-      <a href="//www.npmjs.com/package/metalint" title="npm">
-        <img src="img/npm.svg" alt="npm" />
-      </a>
+      <nav></nav>
     </header>
 
     <main>
+      <section>
       <p>
         <strong>Metalint</strong> est un outil analysant tous les fichiers de
-        votre projet. Selon le type de fichier (JavaScript, HTML, CSS, ...), des
+        votre projet. Selon le type de fichier (JavaScript, HTML, CSS…), des
         linters (outils d'analyse statique) externes sont utilisés pour
-        contrôler le code source. Metalint agrège les résultats et les erreurs
+        contrôler le code source. Metalint agrège les résultats ; les erreurs
         sont ainsi regroupées par fichier et affichées dans le même format.
       </p>
       <ul id="snippet">
         <li>
           <img src="img/linters.svg" alt="Linters" />
           <a href="user/linters/">
-            Six langages peuvent être analysés grâce à <strong>13
-            linters</strong>.
+            10 langages / technologies peuvent être analysées grâce à
+            <strong>20 linters</strong>.
           </a>
         </li>
         <li>
           <img src="img/use.svg" alt="Utilisation" />
           <a href="user/use/">
-            <strong>Une seule commande</strong> pour analyser tous vos fichiers.
+            <strong>Une seule commande</strong> pour analyser tous les fichiers
+            de votre projet.
           </a>
         </li>
         <li>
@@ -85,16 +58,36 @@
           </a>
         </li>
         <li>
-          <img src="img/reporters.svg" alt="Rapporteurs" />
-          <a href="user/reporters/">
+          <img src="img/formatters.svg" alt="Formateurs" />
+          <a href="user/formatters/">
             <strong>Plusieurs formats</strong> de sortie sont disponibles :
-            CSV, Checkstyle, JSON, ...
+            CSV, Checkstyle, JSON…
           </a>
         </li>
       </ul>
+      </section>
+
+      <section>
+        <h2>TL;DR</h2>
+        <p>
+          Si votre projet a un fichier <code>package.json</code> et qu'il
+          possède déjà un ou plusieurs linters : exécutez les commandes
+          suivantes pour installer Metalint, initialiser la configuration (en
+          tentant de récupérer la configuration des linters déjà installés) et
+          exécutez <code>metalint</code>.
+        </p>
+        <pre><code class="language-powershell">
+npm install metalint --save-dev
+npx metalint init
+npx metalint
+        </code></pre>
+      </section>
     </main>
+
+    <footer></footer>
 
     <script src="lib/jquery.min.js"></script>
     <script src="global.js"></script>
+    <script src="lib/prism.min.js"></script>
   </body>
 </html>

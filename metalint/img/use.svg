@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="#737373">
   <path d="M 38,6 10,6 C 7.8,6 6,7.8 6,10 l 0,28 c 0,2.2 1.8,4 4,4 l 28,0 c
            2.2,0 4,-1.8 4,-4 L 42,10 C 42,7.8 40.2,6 38,6 Z m -10,28 -4,0 0,-16
            -4,0 0,-4 8,0 0,20 z" />

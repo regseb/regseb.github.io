@@ -4,41 +4,18 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JSCS · Metalint</title>
-    <link rel="icon" type="image/png" href="../../../img/favicon.svg" />
-    <link rel="stylesheet" href="../../../lib/prism.css" />
-    <link rel="stylesheet" href="../../../global.css" />
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
   </head>
   <body>
-    <nav>
+    <header>
       <a href="../../.." title="Metalint">
         <img src="../../../img/logo.svg" alt="Metalint" />
       </a>
-      <div><a href="..">Linters</a><span> · JSCS</span></div>
-      <ol>
-        <li>
-          <span>Guide utilisateur</span>
-          <ul>
-            <li><a href="../../install/">Installation</a></li>
-            <li><a href="../../config/">Configuration</a></li>
-            <li><a href="../../use/">Utilisation</a></li>
-            <li><hr /></li>
-            <li><a href="../../linters/">Linters</a></li>
-            <li><a href="../../reporters/">Rapporteurs</a></li>
-          </ul>
-        </li>
-        <li>
-          <span>Guide développeur</span>
-          <ul>
-            <li><a href="../../../dev/source/">Code source</a></li>
-            <li><a href="../../../dev/api/">API</a></li>
-            <li><a href="../../../dev/linter/">Linter</a></li>
-            <li><a href="../../../dev/reporter/">Rapporteur</a></li>
-          </ul>
-        </li>
-      </ol>
-    </nav>
-
-    <header><h1>JSCS</h1></header>
+      <h1><a href="..">Linters</a> · JSCS</h1>
+      <nav></nav>
+    </header>
 
     <main>
       <section>
@@ -47,22 +24,23 @@
           <a href="http://jscs.info/">JSCS</a> est un outil pour analyser le
           style d'un code source <strong>JavaScript</strong>.
         </p>
-        <p>
-          <strong>JSCS est obsolète !</strong> Il a été intégré dans le linter
-          <a href="../eslint/">ESLint</a>.
-        </p>
+
+        <div class="warnbox">
+          <p>
+            <strong>JSCS est obsolète !</strong> Il a été intégré dans le linter
+            <a href="../eslint/">ESLint</a> et il n'est plus maintenu.
+          </p>
+        </div>
       </section>
 
       <section>
         <h2 id="install">Installation</h2>
         <p>
-          JSCS doit-être installé avec une des deux commandes suivantes selon
-          que Metalint ait été installé en global ou dans les dépendances de
-          dévéloppement d'un paquet.
+          La commande suivante installe et ajoute JSCS dans les dépendances de
+          développement de votre projet <em>npm</em>.
         </p>
         <pre><code>
-npm install -g jscs
-npm install --save-dev jscs
+npm install jscs --save-dev
         </code></pre>
       </section>
 
@@ -89,7 +67,7 @@ npm install --save-dev jscs
           </li>
           <li>
             Grâce à l'option <code>"fileExtensions"</code>, on peut filtrer les
-            fichier à valider en fonction de leur extension. Il faut utiliser
+            fichiers à valider en fonction de leur extension. Il faut utiliser
             les <a href="../../config/#metalintjson-patterns">patrons</a> dans
             le fichier de configuration <code>metalint.json</code>.
           </li>
@@ -106,19 +84,10 @@ npm install --save-dev jscs
           </li>
         </ul>
       </section>
-
-      <section>
-        <h2 id="others">Autres linters JavaScript</h2>
-        <ul>
-          <li><a href="../eslint/">ESLint</a></li>
-          <li><a href="../flow-bin/">Flow</a></li>
-          <li><a href="../jshint/">JSHint</a></li>
-          <li><a href="../standard/">JavaScript Standard Style</a></li>
-        </ul>
-      </section>
     </main>
 
     <aside><ul></ul></aside>
+    <footer></footer>
 
     <script src="../../../lib/jquery.min.js"></script>
     <script src="../../../global.js"></script>

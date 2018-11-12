@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purgecss · Metalint</title>
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <h1><a href="..">Linters</a> · Purgecss</h1>
+      <nav></nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 id="description">Description</h2>
+        <p>
+          <a href="https://www.purgecss.com/">Purgecss</a> est un outil
+          pour détecter les règles <strong>CSS</strong> qui ne sont pas
+          utilisées.
+        </p>
+
+        <div class="infobox">
+          <p>
+            Autres linters CSS (SCSS, Sass, Less) :
+            <a href="../csslint/">CSSLint</a>, <a href="../doiuse/">doiuse</a>,
+            <a href="../lesshint/">lesshint</a> et
+            <a href="../stylelint/">stylelint</a>.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="install">Installation</h2>
+        <p>
+          La commande suivante installe et ajoute Purgecss dans les dépendances
+          de développement de votre projet <em>npm</em>.
+        </p>
+        <pre><code>
+npm install purgecss --save-dev
+        </code></pre>
+      </section>
+
+      <section>
+        <h2 id="configuration">Configuration</h2>
+        <p>
+          L'option <code>"css"</code> de la
+          <a href="https://www.purgecss.com/configuration">configuration</a>
+          doit être remplacée par les
+          <a href="../../config/#metalintjson-patterns">patrons</a> du fichier
+          de configuration principale. Pour l'option <code>"content"</code>,
+          seules les chaines de caractères sont gérées.
+        </p>
+        <p>
+          Les options <code>"whitelist"</code>, <code>"keyframes"</code> et
+          <code>"fontFace"</code> peuvent être utilisées.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <div class="tabs">
+          <ul>
+            <li><code>metalint.json</code></li>
+            <li><code>purgecss.json</code></li>
+          </ul>
+          <pre><code class="language-javascript">
+{
+    "patterns": ["!/node_modules/", "**"],
+    "checkers": [
+        {
+            "patterns": "*.css",
+            "linters": "purgecss"
+        }
+    ]
+}
+          </code></pre>
+          <pre><code class="language-javascript">
+{
+    "content": "*.html"
+}
+          </code></pre>
+        </div>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+    <footer></footer>
+
+    <script src="../../../lib/jquery.min.js"></script>
+    <script src="../../../global.js"></script>
+    <script src="../../../lib/prism.min.js"></script>
+  </body>
+</html>

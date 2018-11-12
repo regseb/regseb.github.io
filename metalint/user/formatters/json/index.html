@@ -3,66 +3,67 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>json (Rapporteur) · Metalint</title>
-    <link rel="icon" type="image/png" href="../../../img/favicon.svg" />
-    <link rel="stylesheet" href="../../../lib/prism.css" />
-    <link rel="stylesheet" href="../../../global.css" />
+    <title>json (Formateur) · Metalint</title>
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
   </head>
   <body>
-    <nav>
+    <header>
       <a href="../../.." title="Metalint">
         <img src="../../../img/logo.svg" alt="Metalint" />
       </a>
-      <div><a href="..">Rapporteurs</a><span> · json</span></div>
-      <ol>
-        <li>
-          <span>Guide utilisateur</span>
-          <ul>
-            <li><a href="../../install/">Installation</a></li>
-            <li><a href="../../config/">Configuration</a></li>
-            <li><a href="../../use/">Utilisation</a></li>
-            <li><hr /></li>
-            <li><a href="../../linters/">Linters</a></li>
-            <li><a href="../../reporters/">Rapporteurs</a></li>
-          </ul>
-        </li>
-        <li>
-          <span>Guide développeur</span>
-          <ul>
-            <li><a href="../../../dev/source/">Code source</a></li>
-            <li><a href="../../../dev/api/">API</a></li>
-            <li><a href="../../../dev/linter/">Linter</a></li>
-            <li><a href="../../../dev/reporter/">Rapporteur</a></li>
-          </ul>
-        </li>
-      </ol>
-    </nav>
-
-    <header><h1>json (Rapporteur)</h1></header>
+      <h1><a href="..">Formateurs</a> · json</h1>
+      <nav></nav>
+    </header>
 
     <main>
       <section>
         <h2 id="description">Description</h2>
         <p>
-          Ce rapporteur retourne les données brutes de Metalint. Le résultat est
-          un objet <a href="http://www.json.org/json-fr.html">JSON</a> dont les
+          Ce formateur retourne les données brutes de Metalint. Le résultat est
+          un objet <a href="https//www.json.org/json-fr.html">JSON</a> dont les
           clés sont les fichiers analysés et les valeurs : la liste des
           problèmes remontés. Si un fichier respecte un des patrons globaux,
-          mais qu'aucun checker ne lui est associé : la valeur ser
+          mais qu'aucun checker ne lui est associé : la valeur sera
           <code>null</code>.
         </p>
         <p>
-          En passant le niveau de verbosité à <code>1</code> : la sortie JSON
-          est indentée.
+          Une option est disponible : <code>indent</code>, pour choisir la
+          taille des indentations :
         </p>
+        <ul>
+          <li>
+            <code>0</code> (par défaut) : le fichier n'aura pas de retours à la
+            ligne ;
+          </li>
+          <li>
+            <code>1</code> : le document aura des retours à ligne et une
+            indentation d'une espace.
+          </li>
+          <li>
+            <code>2</code> : une indentation de deux espaces ;
+          </li>
+          <li>
+            etc.
+          </li>
+        </ul>
       </section>
 
       <section>
         <h2 id="example">Exemple</h2>
+        <pre><code class="language-javascript">
+{
+    "reporters": {
+        "formatter": "json",
+        "options": { "indent": 4 }
+    }
+}
+        </code></pre>
         <p>
-          Voici un rapport (avec la verbosité à <code>1</code>) où trois
+          Voici un rapport (avec l'indentation à <code>4</code>) où trois
           fichiers sont présents : <code>.gitignore</code> qui ne respecte aucun
-          patron des checkers, <code>global.js</code> qui n'a aucune erreur et
+          patron des checkers, <code>index.html</code> qui n'a aucune erreur et
           <code>script.js</code> qui contient deux erreurs (une remontée par
           <a href="../../linters/jshint/">JSHint</a> et l'autre par
           <a href="../../linters/jscs/">JSCS</a>).
@@ -70,7 +71,7 @@
         <pre><code class="language-javascript">
 {
     ".gitignore": null,
-    "global.js": [],
+    "index.html": [],
     "script.js": [
         {
             "linter": "jshint",
@@ -103,6 +104,7 @@
     </main>
 
     <aside><ul></ul></aside>
+    <footer></footer>
 
     <script src="../../../lib/jquery.min.js"></script>
     <script src="../../../global.js"></script>

@@ -1,7 +1,7 @@
 pre {
     background: #212121;
     border-radius: 0.3em;
-    color: #f5f5f5;
+    color: whitesmoke;
     margin: 0.5em 0;
     overflow-x: auto;
     padding: 0 1em;
@@ -14,10 +14,12 @@ code {
 }
 
 code .keyword     { color: #ffeb3b; }
-code .punctuation { color: #f5f5f5; }
+code .punctuation { color: whitesmoke; }
 code .tag         { color: #ffeb3b; }
 code .string,
 code .attr-value  { color: #e51c23; }
+code .boolean,
+code .number,
 code .attr-name   { color: #259b24; }
 code .comment,
 code .doctype     { color: #3f51b5; }

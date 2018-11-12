@@ -1,0 +1,32 @@
+{
+    "name": "regseb-github-io",
+    "version": "1.0.0",
+    "homepage": "https://regseb.github.io/",
+    "bugs": {
+        "url": "https://github.com/regseb/regseb.github.io/issues"
+    },
+    "license": "EUPL-1.2",
+    "author": "Sébastien Règne <regseb@gmail.com> (https://github.com/regseb)",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/regseb/regseb.github.io.git"
+    },
+    "scripts": {
+        "start": "http-server",
+        "lint": "metalint"
+    },
+    "dependencies": {
+        "http-server": "^0.11.1",
+        "jquery": "^3.3.1"
+    },
+    "devDependencies": {
+        "david": "^11.0.0",
+        "eslint": "^5.8.0",
+        "htmlhint": "^0.10.1",
+        "jsonlint": "^1.6.3",
+        "markdownlint": "^0.11.0",
+        "metalint": "^0.8.1",
+        "purgecss": "^1.1.0",
+        "stylelint": "^9.7.1"
+    }
+}

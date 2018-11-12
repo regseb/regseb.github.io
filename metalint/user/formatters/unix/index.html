@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>unix (Formateur) · Metalint</title>
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <h1><a href="..">Formateurs</a> · unix</h1>
+      <nav></nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 id="description">Description</h2>
+        <p>
+          Ce formateur affiche les données de façon compacte : une ligne égale
+          une notification.
+        </p>
+        <ul>
+          <li>
+            <code>file</code> : le nom du fichier ;
+          </li>
+          <li>
+            <code>line</code> : le numéro de la ligne ;
+          </li>
+          <li>
+            <code>column</code> : le numéro de la colonne ;
+          </li>
+          <li>
+            <code>message</code> : le message décrivant le problème ;
+          </li>
+          <li>
+            <code>linter</code> : le linter ayant trouvé le problème ;
+          </li>
+          <li>
+            <code>rule</code> : la règle du linter qui n'est pas respectée.
+          </li>
+        </ul>
+        <p>
+          Les éléments sont séparés par deux-points. Sauf pour le
+          <code>linter</code> et la <code>rule</code> qui sont affichés entre
+          parenthèse et séparés par un point :
+          <code> (<em>linter</em>.<em>rule</em>)</code>.
+        </p>
+        <p>
+          Une ligne vide est insérée entre les notifications de fichiers
+          différents.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <pre><code class="language-javascript">
+{
+    "reporters": {
+        "formatter": "unix"
+    }
+}
+        </code></pre>
+        <p>
+          Voici un rapport où trois alertes sont affichés.
+        </p>
+        <pre><code>
+README.md:1:: First header should be a h1 header (markdownlint.MD002)
+
+tool.js:55:36: Don't make functions within a loop (jshint.W083)
+tool.js:78:3: Comments cannot contain the following keywords: todo, fixme (jscs)
+        </code></pre>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+    <footer></footer>
+
+    <script src="../../../lib/jquery.min.js"></script>
+    <script src="../../../global.js"></script>
+    <script src="../../../lib/prism.min.js"></script>
+  </body>
+</html>

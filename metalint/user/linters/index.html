@@ -4,56 +4,39 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linters · Metalint</title>
-    <link rel="icon" type="image/png" href="../../img/favicon.svg" />
-    <link rel="stylesheet" href="../../global.css" />
+    <link rel="icon" type="image/svg+xml" href="../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../global.css" />
   </head>
   <body>
-    <nav>
+    <header>
       <a href="../.." title="Metalint">
         <img src="../../img/logo.svg" alt="Metalint" />
       </a>
-      <div><span>Linters</span></div>
-      <ol>
-        <li>
-          <span>Guide utilisateur</span>
-          <ul>
-            <li><a href="../install/">Installation</a></li>
-            <li><a href="../config/">Configuration</a></li>
-            <li><a href="../use/">Utilisation</a></li>
-            <li><hr /></li>
-            <li><a href="../linters/">Linters</a></li>
-            <li><a href="../reporters/">Rapporteurs</a></li>
-          </ul>
-        </li>
-        <li>
-          <span>Guide développeur</span>
-          <ul>
-            <li><a href="../../dev/source/">Code source</a></li>
-            <li><a href="../../dev/api/">API</a></li>
-            <li><a href="../../dev/linter/">Linter</a></li>
-            <li><a href="../../dev/reporter/">Rapporteur</a></li>
-          </ul>
-        </li>
-      </ol>
-    </nav>
-
-    <header><h1>Linters</h1></header>
+      <h1>Linters</h1>
+      <nav></nav>
+    </header>
 
     <main>
       <section>
-        <h2 id="introduction">Introduction</h2>
+        <h2 id="list">Liste</h2>
         <p>
-          Actuellement Metalint gère <strong>13</strong> linters permettant
+          Actuellement Metalint gère <strong>20</strong> linters permettant
           d'analyser les fichiers :
         </p>
         <ul>
           <li>
-            <strong>Add-on Firefox (XPI) :</strong>
+            <strong>Add-on de Firefox (WebExtension) :</strong>
             <a href="addons-linter/">Add-ons Linter</a> ;
           </li>
           <li>
-            <strong>CSS :</strong> <a href="csslint/">CSSLint</a> et
-            <a href="stylelint/">stytelint</a> ;
+            <strong>CoffeeScript :</strong>
+            <a href="coffeelint/">CoffeeScript</a> ;
+          </li>
+          <li>
+            <strong>CSS (SCSS, Sass, Less) :</strong>
+            <a href="csslint/">CSSLint</a>, <a href="doiuse/">doiuse</a>,
+            <a href="lesshint/">lesshint</a>, <a href="purgecss/">Purgecss</a>
+            et <a href="stylelint/">stylelint</a> ;
           </li>
           <li>
             <strong>HTML :</strong> <a href="htmlhint/">HTMLHint</a> et
@@ -71,13 +54,30 @@
           </li>
           <li>
             <strong>Markdown :</strong>
-            <a href="markdownlint/">MarkdownLint</a>.
+            <a href="markdownlint/">MarkdownLint</a> ;
+          </li>
+          <li>
+            <strong><em>package.json</em> </strong>(npm)<strong> :</strong>
+            <a href="david/">David DM</a> ;
+          </li>
+          <li>
+            <strong>TypeScript :</strong> <a href="tslint/">TSLint</a> ;
+          </li>
+          <li>
+            <strong>YAML :</strong> <a href="yaml-lint/">YAML Lint</a>.
           </li>
         </ul>
+        <p>
+          <strong>NB :</strong> Les linters ne sont pas inclus par défaut dans
+          Metalint. Vous devez installer ceux que vous allez utiliser. Consultez
+          le détail de chaque linter pour savoir comment l'installer et le
+          configurer.
+        </p>
       </section>
     </main>
 
     <aside><ul></ul></aside>
+    <footer></footer>
 
     <script src="../../lib/jquery.min.js"></script>
     <script src="../../global.js"></script>

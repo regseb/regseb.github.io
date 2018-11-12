@@ -4,91 +4,48 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Installation · Metalint</title>
-    <link rel="icon" type="image/png" href="../../img/favicon.svg" />
-    <link rel="stylesheet" href="../../lib/prism.css" />
-    <link rel="stylesheet" href="../../global.css" />
+    <link rel="icon" type="image/svg+xml" href="../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../global.css" />
   </head>
   <body>
-    <nav>
+    <header>
       <a href="../.." title="Metalint">
         <img src="../../img/logo.svg" alt="Metalint" />
       </a>
-      <div><span>Installation</span></div>
-      <ol>
-        <li>
-          <span>Guide utilisateur</span>
-          <ul>
-            <li><a href="../install/">Installation</a></li>
-            <li><a href="../config/">Configuration</a></li>
-            <li><a href="../use/">Utilisation</a></li>
-            <li><hr /></li>
-            <li><a href="../linters/">Linters</a></li>
-            <li><a href="../reporters/">Rapporteurs</a></li>
-          </ul>
-        </li>
-        <li>
-          <span>Guide développeur</span>
-          <ul>
-            <li><a href="../../dev/source/">Code source</a></li>
-            <li><a href="../../dev/api/">API</a></li>
-            <li><a href="../../dev/linter/">Linter</a></li>
-            <li><a href="../../dev/reporter/">Rapporteur</a></li>
-          </ul>
-        </li>
-      </ol>
-    </nav>
-
-    <header><h1>Installation</h1></header>
+      <h1>Installation</h1>
+      <nav></nav>
+    </header>
 
     <main>
       <section>
         <h2 id="required">Prérequis</h2>
         <p>
-          <a href="//nodejs.org"><strong>Node.js</strong> v6</a> (ou plus) est
-          nécessaire pour utiliser Metalint. Node.js est un outil permettant
-          d'exécuter du code JavaScript directement sur la machine, sans
-          utiliser de navigateur Internet.
-        </p>
-      </section>
-
-      <section>
-        <h2 id="download">Téléchargement</h2>
-        <p>
-          Metalint est hébergé dans le gestionnaire de paquets
-          <a href="//www.npmjs.com/package/metalint"><strong>npm</strong></a>.
-          Node.js fournit l'utilitaire <code>npm</code> qui permet de
-          télécharger un paquet. En exécutant la commande ci-dessous, Metalint
-          sera téléchargé et l'éxécutable <code>metalint</code> sera ajouté à
-          votre <code>PATH</code>.
-        </p>
-        <pre><code>
-npm install -g metalint
-        </code></pre>
-        <p>
-          Il faut ensuite installer en global les
-          <a href="../linters">linters</a> que vous comptez utiliser.
+          <a href="https://nodejs.org/fr/"><strong>Node.js</strong> 10+</a> est
+          nécessaire pour utiliser Metalint.
         </p>
       </section>
 
       <section>
         <h2 id="integration">Intégration</h2>
         <p>
-          Si vous utilisez npm dans votre projet, vous pouvez ajouter Metalint
-          dans les
-          <a href="//docs.npmjs.com/files/package.json#devdependencies">
-            dépendances de développement</a> :
+          Metalint est hébergé dans le gestionnaire de paquets
+          <a href="https://www.npmjs.com/package/metalint"><strong>
+            npm</strong></a>. En exécutant la commande ci-dessous, Metalint sera
+          téléchargé et ajouté dans les
+          <a href="https://docs.npmjs.com/files/package.json#devdependencies">
+            dépendances de développement</a> de votre projet.
         </p>
         <pre><code>
-npm install --save-dev metalint
+npm install metalint --save-dev
         </code></pre>
         <p>
-          Il faut ensuite ajouter aussi les <a href="../linters">linters</a>
-          dans les dépendances de développement.
-        </p>
-        <p>
-          Puis ajoutez la propriété <code>"lint"</code> dans les
-          <a href="//docs.npmjs.com/misc/scripts"><code>"scripts"</code></a> du
-          fichier <strong>package.json</strong> :
+          Pour simplifier l'utilisation de Metalint (avec la commande
+          <code>npm run lint</code>), vous pouvez ajouter la propriété
+          <code>"lint"</code> dans les
+          <a href="https://docs.npmjs.com/misc/scripts">
+            <code>"scripts"</code></a> du fichier
+          <strong>package.json</strong> :
         </p>
         <pre><code class="language-javascript">
 {
@@ -97,29 +54,32 @@ npm install --save-dev metalint
     }
 }
         </code></pre>
-        <p>
-          Metalint sera utilisable avec la commande : <code>npm run lint</code>
-        </p>
       </section>
 
       <section>
-        <h2 id="license">Licence</h2>
+        <h2 id="initialization">Initialisation</h2>
         <p>
-          Metalint est publié sous la
-          <a href="//joinup.ec.europa.eu/community/eupl/description">Licence
-          Publique de l'Union européenne 1.1</a> (<strong>EUPL-1.1</strong>).
-          C'est une licence libre approuvé par la
-          <a href="//www.gnu.org/licenses/license-list.html#EUPL"
-             title="Free Software Foundation">FSF</a> et
-          l'<a href="http://opensource.org/licenses/EUPL-1.1"
-               title="Open Source Initiative">OSI</a>. Elle est disponible dans
-          22 langues dont le
-          <a href="//joinup.ec.europa.eu/sites/default/files/eupl1.1.-fr_0_0.pdf">français</a>.
+          Pour créer un fichier de configuration, placez-vous à la racine de
+          votre projet et exécutez la commande suivante :
+        </p>
+        <pre><code>
+npx metalint init
+        </code></pre>
+        <p>
+          Le répertoire <code>.metalint</code> sera ajouté dans votre projet. Il
+          contiendra le fichier <code>metalint.json</code> qui listera tous les
+          linters présents dans vos dépendances de développement et tentera de
+          lier Metalint avec les fichiers de configuration des linters.
+        </p>
+        <p>
+          Metalint est maintenant utilisable avec la commande :
+          <code>npx metalint</code> (ou <code>npm run lint</code>).
         </p>
       </section>
     </main>
 
     <aside><ul></ul></aside>
+    <footer></footer>
 
     <script src="../../lib/jquery.min.js"></script>
     <script src="../../global.js"></script>

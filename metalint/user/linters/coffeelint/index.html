@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CoffeeLint · Metalint</title>
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <h1><a href="..">Linters</a> · CoffeeLint</h1>
+      <nav></nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 id="description">Description</h2>
+        <p>
+          <a href="https://github.com/clutchski/coffeelint">CoffeeLint</a> est
+          un analyseur syntaxique pour les codes <strong>CoffeeScript</strong>.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="install">Installation</h2>
+        <p>
+          La commande suivante installe et ajoute CoffeeLint dans les
+          dépendances de développement de votre projet <em>npm</em>.
+        </p>
+        <pre><code>
+npm install coffeelint --save-dev
+        </code></pre>
+      </section>
+
+      <section>
+        <h2 id="configuration">Configuration</h2>
+        <p>
+          Le fichier de configuration est identique à celui utilisé directement
+          par CoffeeLint.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <div class="tabs">
+          <ul>
+            <li><code>metalint.json</code></li>
+            <li><code>coffeelint.json</code></li>
+          </ul>
+          <pre><code class="language-javascript">
+{
+    "patterns": ["!/node_modules/", "**"],
+    "checkers": [
+        {
+            "patterns": "*.coffee",
+            "linters": "coffeelint"
+        }
+    ]
+}
+          </code></pre>
+          <pre><code class="language-javascript">
+{
+    "indentation": {
+        "level": "error",
+        "value": 4
+    },
+    "line_endings": {
+        "value": "unix",
+        "level": "error"
+    }
+}
+          </code></pre>
+        </div>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+    <footer></footer>
+
+    <script src="../../../lib/jquery.min.js"></script>
+    <script src="../../../global.js"></script>
+    <script src="../../../lib/prism.min.js"></script>
+  </body>
+</html>

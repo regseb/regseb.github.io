@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>csv (Formateur) · Metalint</title>
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <h1><a href="..">Formateurs</a> · csv</h1>
+      <nav></nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 id="description">Description</h2>
+        <p>
+          Ce formateur retourne les données au format
+          <a href="https://tools.ietf.org/html/rfc4180">CSV</a>. La première
+          ligne contient le nom des colonnes et chaque ligne suivante correspond
+          à une alerte. Les colonnes sont :
+        </p>
+        <ul>
+          <li>
+            <code>file</code> : le nom du fichier ;
+          </li>
+          <li>
+            <code>line</code> : le numéro de la ligne ;
+          </li>
+          <li>
+            <code>column</code> : le numéro de la colonne ;
+          </li>
+          <li>
+            <code>message</code> : le message décrivant le problème ;
+          </li>
+          <li>
+            <code>linter</code> : le linter ayant trouvé le problème ;
+          </li>
+          <li>
+            <code>rule</code> : la règle du linter qui n'est pas respectée.
+          </li>
+        </ul>
+        <p>
+          Les colonnes sont séparées par une virgule et les lignes par les
+          caractères <em title="Carriage Return Line Feed">CRLF</em>
+          (<code>\r\n</code>). Les valeurs des colonnes <code>file</code>,
+          <code>message</code> et <code>rule</code> sont enrobées par des
+          guillemets. Si le contenu d'une colonne contient un guillemet,
+          celui-ci est doublé pour l'échapper.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <pre><code class="language-javascript">
+{
+    "reporters": {
+        "formatter": "csv"
+    }
+}
+        </code></pre>
+        <p>
+          Voici un rapport où deux alertes sont affichées pour le même fichier.
+        </p>
+        <pre><code>
+file,line,column,message,linter,rule
+"script.js",255,36,"Don't make functions within a loop.",jshint,"W083"
+"script.js",278,3,"Comments cannot contain the following keywords: todo, fixme",jscs,
+        </code></pre>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+    <footer></footer>
+
+    <script src="../../../lib/jquery.min.js"></script>
+    <script src="../../../global.js"></script>
+    <script src="../../../lib/prism.min.js"></script>
+  </body>
+</html>

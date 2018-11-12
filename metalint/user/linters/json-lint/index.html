@@ -4,62 +4,44 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JSON-Lint · Metalint</title>
-    <link rel="icon" type="image/png" href="../../../img/favicon.svg" />
-    <link rel="stylesheet" href="../../../lib/prism.css" />
-    <link rel="stylesheet" href="../../../global.css" />
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
   </head>
   <body>
-    <nav>
+    <header>
       <a href="../../.." title="Metalint">
         <img src="../../../img/logo.svg" alt="Metalint" />
       </a>
-      <div><a href="..">Linters</a><span> · JSON-Lint</span></div>
-      <ol>
-        <li>
-          <span>Guide utilisateur</span>
-          <ul>
-            <li><a href="../../install/">Installation</a></li>
-            <li><a href="../../config/">Configuration</a></li>
-            <li><a href="../../use/">Utilisation</a></li>
-            <li><hr /></li>
-            <li><a href="../../linters/">Linters</a></li>
-            <li><a href="../../reporters/">Rapporteurs</a></li>
-          </ul>
-        </li>
-        <li>
-          <span>Guide développeur</span>
-          <ul>
-            <li><a href="../../../dev/source/">Code source</a></li>
-            <li><a href="../../../dev/api/">API</a></li>
-            <li><a href="../../../dev/linter/">Linter</a></li>
-            <li><a href="../../../dev/reporter/">Rapporteur</a></li>
-          </ul>
-        </li>
-      </ol>
-    </nav>
-
-    <header><h1>JSON-Lint</h1></header>
+      <h1><a href="..">Linters</a> · JSON-Lint</h1>
+      <nav></nav>
+    </header>
 
     <main>
       <section>
         <h2 id="description">Description</h2>
         <p>
-          <a href="//codenothing.github.io/jsonlint/">JSON-Lint</a> est un outil
-          pour analyser les fichiers contenant un objet <strong>JSON</strong>.
-          Les commentaires peuvent être autorisés avec ce linter.
+          <a href="https://codenothing.github.io/jsonlint/">JSON-Lint</a> est un
+          outil pour analyser les fichiers contenant un objet
+          <strong>JSON</strong>. Les commentaires peuvent être autorisés avec ce
+          linter.
         </p>
+
+        <div class="infobox">
+          <p>
+            Autre linter JSON : <a href="../jsonlint/">JSONLint</a>.
+          </p>
+        </div>
       </section>
 
       <section>
         <h2 id="install">Installation</h2>
         <p>
-          JSON-Lint doit-être installé avec une des deux commandes suivantes
-          selon que Metalint ait été installé en global ou dans les dépendances
-          de dévéloppement d'un paquet.
+          La commande suivante installe et ajoute JSON-Lint dans les dépendances
+          de développement de votre projet <em>npm</em>.
         </p>
         <pre><code>
-npm install -g json-lint
-npm install --save-dev json-lint
+npm install json-lint --save-dev
         </code></pre>
       </section>
 
@@ -79,10 +61,10 @@ npm install --save-dev json-lint
           </ul>
           <pre><code class="language-javascript">
 {
-    "patterns": ["!node_modules/**", "**"],
+    "patterns": ["!/node_modules/", "**"],
     "checkers": [
         {
-            "patterns": "**/*.json",
+            "patterns": "*.json",
             "linters": { "json-lint": { "comments": false } }
         }
     ]
@@ -90,16 +72,10 @@ npm install --save-dev json-lint
           </code></pre>
         </div>
       </section>
-
-      <section>
-        <h2 id="others">Autres linters JSON</h2>
-        <ul>
-          <li><a href="../jsonlint/">JSONLint</a></li>
-        </ul>
-      </section>
     </main>
 
     <aside><ul></ul></aside>
+    <footer></footer>
 
     <script src="../../../lib/jquery.min.js"></script>
     <script src="../../../global.js"></script>

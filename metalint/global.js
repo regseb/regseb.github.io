@@ -2,16 +2,30 @@
 
 "use strict";
 
+// Ajouter le menu.
+fetch("/metalint/menu.html").then(function (response) {
+    return response.text();
+}).then(function (response) {
+    document.querySelector("nav").innerHTML = response;
+});
+
+// Ajouter le pied de page.
+fetch("/metalint/footer.html").then(function (response) {
+    return response.text();
+}).then(function (response) {
+    document.querySelector("footer").innerHTML = response;
+});
+
 const $headers = $("h2");
 // Créer le sommaire de gauche.
 $headers.each(function () {
-    let $a = $("<a>").attr("href", "#" + $(this).attr("id"))
+    const $a = $("<a>").attr("href", "#" + $(this).attr("id"))
                      .text($(this).text());
     $("aside ul").append($("<li>").html($a));
 });
 let lastId;
-let topMenuHeight = $("aside").outerHeight();
-let $contents = $("aside a");
+const topMenuHeight = $("nav").outerHeight();
+const $contents = $("aside a");
 $("aside li:first").addClass("active");
 
 let menuTop = 0;
@@ -35,9 +49,9 @@ $(window).scroll(function () {
 
 
     if (menuTop < $(window).scrollTop()) {
-        $("aside").css({ "position": "fixed" });
+        $("aside ul").css({ "position": "fixed" });
     } else {
-        $("aside").css({ "position": "static" });
+        $("aside ul").css({ "position": "static" });
     }
 
     let id = null;
@@ -46,7 +60,7 @@ $(window).scroll(function () {
         id = $("h2:last").attr("id");
     } else {
         // Get container scroll position
-        let fromTop = $(this).scrollTop() + topMenuHeight;
+        const fromTop = $(this).scrollTop() + topMenuHeight;
 
         // Rechercher la section courante.
         $headers.each(function () {
@@ -68,7 +82,7 @@ $(window).scroll(function () {
 }).scroll();
 
 // Gérer les changements d'onglet.
-for (let tab of document.querySelectorAll(".tabs > ul li")) {
+for (const tab of document.querySelectorAll(".tabs > ul li")) {
     tab.onclick = function () {
         let index;
         for (let i = 0; i < this.parentElement.children.length; ++i) {
@@ -80,19 +94,16 @@ for (let tab of document.querySelectorAll(".tabs > ul li")) {
             }
         }
 
-        let contents = this.parentElement.parentElement.children;
+        const contents = this.parentElement.parentElement.children;
         for (let i = 1; i < contents.length; ++i) {
-            // Afficher le contenu de l'onglet sélectionné.
-            if (index === i) {
-                contents[i].style.display = "block";
-            // Cacher le contenu des autres onglets.
-            } else {
-                contents[i].style.display = "none";
-            }
+            // Afficher le contenu de l'onglet sélectionné et acher le contenu
+            // des autres onglets.
+            contents[i].style.display = index === i ? "block"
+                                                    : "none";
         }
-    }; // onclick()
+    };
 }
 // Afficher le contenu du premier onglet.
-for (let first of document.querySelectorAll(".tabs > ul li:first-child")) {
+for (const first of document.querySelectorAll(".tabs > ul li:first-child")) {
     first.click();
 }

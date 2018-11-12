@@ -1,0 +1,32 @@
+{
+    "patterns": [
+        "!/.git/", "!/node_modules/", "**"
+    ],
+    "checkers": [
+        {
+            "patterns": ["!*.min.js", "*.js"],
+            "linters": "eslint"
+        }, {
+            "patterns": "*.html",
+            "linters": "htmlhint"
+        }, {
+            "patterns": "*.css",
+            "linters": "stylelint"
+        }, {
+            "patterns": "/scronpt/*.css",
+            "linters": { "purgecss": { "content": "/scronpt/*.html" } }
+        }, {
+            "patterns": "/metalint/*.css",
+            "linters": { "purgecss": { "content": "/metalint/**/*.html" } }
+        }, {
+            "patterns": "*.md",
+            "linters": "markdownlint"
+        }, {
+            "patterns": "*.json",
+            "linters": { "jsonlint": null }
+        }, {
+            "patterns": "/package.json",
+            "linters": "david"
+        }
+    ]
+}

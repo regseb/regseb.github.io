@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>console (Formateur) · Metalint</title>
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <h1><a href="..">Formateurs</a> · console</h1>
+      <nav></nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 id="description">Description</h2>
+        <p>
+          Avec ce formateur, un extrait du code source est affiché pour chaque
+          alerte remontée.
+        </p>
+        <p>
+          Deux options sont disponisbles :
+        </p>
+        <ul>
+          <li>
+            <code>showZeroNotice</code> (<code>false</code> par défaut) pour
+            afficher les fichiers sans alertes.
+          </li>
+          <li>
+            <code>showNoChecked</code> (<code>false</code> par défaut) pour
+            afficher les fichiers non-analysés.
+          </li>
+        </ul>
+      </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <pre><code class="language-javascript">
+{
+    "reporters": {
+        "formatter": "console",
+        "options": { "showZeroNotice": true, "showNoChecked": true }
+    }
+}
+        </code></pre>
+        <p>
+          Voici un rapport (avec les deux options activées) où trois fichiers
+          sont présents : <code>.gitignore</code> qui ne respecte aucun
+          patron des checkers, <code>global.js</code> qui n'a aucune erreur et
+          <code>script.js</code> qui contient deux erreurs (une remontée par
+          <a href="../../linters/jshint/">JSHint</a> et l'autre par
+          <a href="../../linters/jscs/">JSCS</a>).
+        </p>
+        <pre><code>
+.gitignore: No checked.
+
+global.js: 0 notice.
+
+script.js: 2 errors.
+ERROR: Don't make functions within a loop. (jshint.W083)
+  253|             promise = Promise.resolve(null);
+  254|         }
+  255‖         promises.push(promise.then(function (notices) {
+------------------------------------------^
+  256|             return { file, notices };
+  257|         }));
+
+ERROR: Comments cannot contain the following keywords: todo, fixme (jscs)
+  276|                                             "utf-8"));
+  277|     process.stdout.write(pack.name + " " + pack.version + "\n");
+  278‖     // TODO Afficher aussi la version des linters.
+---------^
+  279|     process.exit(0);
+  280| }
+        </code></pre>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+    <footer></footer>
+
+    <script src="../../../lib/jquery.min.js"></script>
+    <script src="../../../global.js"></script>
+    <script src="../../../lib/prism.min.js"></script>
+  </body>
+</html>

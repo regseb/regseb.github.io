@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formateurs · Metalint</title>
+    <link rel="icon" type="image/svg+xml" href="../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../global.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../.." title="Metalint">
+        <img src="../../img/logo.svg" alt="Metalint" />
+      </a>
+      <h1>Formateurs</h1>
+      <nav></nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 id="list">Liste</h2>
+        <p>
+          Metalint peut afficher les résultats dans différents formats. Ce choix
+          se fait avec la propriété
+          <code><a href="../config/#reporters-formatter">"formatter"</a></code>
+          du fichier de configuration <code>metalint.json</code>.
+        </p>
+        <p>
+          Les formateurs disponibles sont :
+        </p>
+        <ul>
+          <li>
+            <strong><a href="checkstyle/">checkstyle</a> :</strong> le résultat
+            est écrit dans un document XML respectant les conventions des
+            rapports de Checkstyle ;
+          </li>
+          <li>
+            <strong><a href="console/">console</a> (par défaut) :</strong> un
+            format adapté pour l'affichage des résultats dans une console et
+            l'analyse par un humain ;
+          </li>
+          <li>
+            <strong><a href="csv/">csv</a> :</strong> les données sont affichées
+            dans un format CSV où chaque ligne représente une alerte ;
+          </li>
+          <li>
+            <strong><a href="json/">json</a> :</strong> les résultats bruts de
+            Metalint au format JSON ;
+          </li>
+          <li>
+            <strong><a href="unix/">unix</a> :</strong> un format compacte
+            affichant l'essentiel des informations des alertes.
+          </li>
+        </ul>
+        <p>
+          Si vous souhaitez créer un autre format, consultez la page
+          <em><a href="../../dev/formatter/">Formateur</a></em> du guide
+          développeur.
+        </p>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+    <footer></footer>
+
+    <script src="../../lib/jquery.min.js"></script>
+    <script src="../../global.js"></script>
+  </body>
+</html>

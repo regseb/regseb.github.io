@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>doiuse · Metalint</title>
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
+  </head>
+  <body>
+    <header>
+      <a href="../../.." title="Metalint">
+        <img src="../../../img/logo.svg" alt="Metalint" />
+      </a>
+      <h1><a href="..">Linters</a> · doiuse</h1>
+      <nav></nav>
+    </header>
+
+    <main>
+      <section>
+        <h2 id="description">Description</h2>
+        <p>
+          <a href="https://github.com/anandthakker/doiuse">doiuse</a> est un
+          outil pour analyser les <strong>feuilles de style (CSS)</strong>.
+        </p>
+
+        <div class="infobox">
+          <p>
+            Autres linters CSS (SCSS, Sass, Less) :
+            <a href="../csslint/">CSSLint</a>,
+            <a href="../lesshint/">lesshint</a>,
+            <a href="../purgecss/">Purgecss</a> et
+            <a href="../stylelint/">stylelint</a>.
+          </p>
+        </div>
+      </section>
+
+      <section>
+        <h2 id="install">Installation</h2>
+        <p>
+          La commande suivante installe et ajoute doiuse dans les dépendances
+          de développement de votre projet <em>npm</em>.
+        </p>
+        <pre><code>
+npm install doiuse --save-dev
+        </code></pre>
+      </section>
+
+      <section>
+        <h2 id="configuration">Configuration</h2>
+        <p>
+          Les
+          <a href="https://github.com/anandthakker/doiuse#as-a-postcss-plugin">
+            règles</a> <code>browsers</code> et <code>ignore</code> peuvent être
+          utilisées dans Metalint.
+        </p>
+      </section>
+
+      <section>
+        <h2 id="example">Exemple</h2>
+        <div class="tabs">
+          <ul>
+            <li><code>metalint.json</code></li>
+            <li><code>doiuse.json</code></li>
+          </ul>
+          <pre><code class="language-javascript">
+{
+    "patterns": ["!/node_modules/", "**"],
+    "checkers": [
+        {
+            "patterns": "*.css",
+            "linters": "doiuse"
+        }
+    ]
+}
+          </code></pre>
+          <pre><code class="language-javascript">
+{
+    "browsers": ["ie &gt;= 8", "&gt; 1%"],
+    "ignore": ["rem"]
+}
+          </code></pre>
+        </div>
+      </section>
+    </main>
+
+    <aside><ul></ul></aside>
+    <footer></footer>
+
+    <script src="../../../lib/jquery.min.js"></script>
+    <script src="../../../global.js"></script>
+    <script src="../../../lib/prism.min.js"></script>
+  </body>
+</html>

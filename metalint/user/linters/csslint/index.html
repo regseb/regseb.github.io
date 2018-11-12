@@ -4,61 +4,46 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSSLint · Metalint</title>
-    <link rel="icon" type="image/png" href="../../../img/favicon.svg" />
-    <link rel="stylesheet" href="../../../lib/prism.css" />
-    <link rel="stylesheet" href="../../../global.css" />
+    <link rel="icon" type="image/svg+xml" href="../../../img/favicon.svg" />
+    <link rel="stylesheet" media="all" href="../../../lib/prism.css" />
+    <link rel="stylesheet" media="all" href="../../../global.css" />
   </head>
   <body>
-    <nav>
+    <header>
       <a href="../../.." title="Metalint">
         <img src="../../../img/logo.svg" alt="Metalint" />
       </a>
-      <div><a href="..">Linters</a><span> · CSSLint</span></div>
-      <ol>
-        <li>
-          <span>Guide utilisateur</span>
-          <ul>
-            <li><a href="../../install/">Installation</a></li>
-            <li><a href="../../config/">Configuration</a></li>
-            <li><a href="../../use/">Utilisation</a></li>
-            <li><hr /></li>
-            <li><a href="../../linters/">Linters</a></li>
-            <li><a href="../../reporters/">Rapporteurs</a></li>
-          </ul>
-        </li>
-        <li>
-          <span>Guide développeur</span>
-          <ul>
-            <li><a href="../../../dev/source/">Code source</a></li>
-            <li><a href="../../../dev/api/">API</a></li>
-            <li><a href="../../../dev/linter/">Linter</a></li>
-            <li><a href="../../../dev/reporter/">Rapporteur</a></li>
-          </ul>
-        </li>
-      </ol>
-    </nav>
-
-    <header><h1>CSSLint</h1></header>
+      <h1><a href="..">Linters</a> · CSSLint</h1>
+      <nav></nav>
+    </header>
 
     <main>
       <section>
         <h2 id="description">Description</h2>
         <p>
-          <a href="//github.com/CSSLint/csslint">CSSLint</a> est un outil pour
-          analyser les <strong>feuilles de style (CSS)</strong>.
+          <a href="https://github.com/CSSLint/csslint">CSSLint</a> est un outil
+          pour analyser les <strong>feuilles de style (CSS)</strong>.
         </p>
+
+        <div class="infobox">
+          <p>
+            Autres linters CSS (SCSS, Sass, Less) :
+            <a href="../doiuse/">doiuse</a>,
+            <a href="../lesshint/">lesshint</a>,
+            <a href="../purgecss/">Purgecss</a> et
+            <a href="../stylelint/">stylelint</a>.
+          </p>
+        </div>
       </section>
 
       <section>
         <h2 id="install">Installation</h2>
         <p>
-          CSSLint doit-être installé avec une des deux commandes suivantes selon
-          que Metalint ait été installé en global ou dans les dépendances de
-          dévéloppement d'un paquet.
+          La commande suivante installe et ajoute CSSLint dans les dépendances
+          de développement de votre projet <em>npm</em>.
         </p>
         <pre><code>
-npm install -g csslint
-npm install --save-dev csslint
+npm install csslint --save-dev
         </code></pre>
       </section>
 
@@ -66,8 +51,8 @@ npm install --save-dev csslint
         <h2 id="configuration">Configuration</h2>
         <p>
           Toutes les
-          <a href="//github.com/CSSLint/csslint/wiki/Rules">règles</a> peuvent
-          être utilisées dans Metalint.
+          <a href="https://github.com/CSSLint/csslint/wiki/Rules">règles</a>
+          peuvent être utilisées dans Metalint.
         </p>
       </section>
 
@@ -80,10 +65,10 @@ npm install --save-dev csslint
           </ul>
           <pre><code class="language-javascript">
 {
-    "patterns": ["!node_modules/**", "**"],
+    "patterns": ["!/node_modules/", "**"],
     "checkers": [
         {
-            "patterns": "**/*.css",
+            "patterns": "*.css",
             "linters": "csslint"
         }
     ]
@@ -102,16 +87,10 @@ npm install --save-dev csslint
           </code></pre>
         </div>
       </section>
-
-      <section>
-        <h2 id="others">Autres linters CSS</h2>
-        <ul>
-          <li><a href="../stylelint/">stylelint</a></li>
-        </ul>
-      </section>
     </main>
 
     <aside><ul></ul></aside>
+    <footer></footer>
 
     <script src="../../../lib/jquery.min.js"></script>
     <script src="../../../global.js"></script>
